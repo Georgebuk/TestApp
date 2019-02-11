@@ -34,6 +34,8 @@ namespace TestApp
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
+                    content = content.Replace("\\", string.Empty);
+                    content = content.Trim('"');
                     bookings = JsonConvert.DeserializeObject<List<Booking>>(content);
                 }
             }
