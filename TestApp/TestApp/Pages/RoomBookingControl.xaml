@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.RoomBookingControl">
+    <ContentView.Content>
+        <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
+                    <Label x:Name="hotelName"/>
+                    <Label x:Name="dateBooked"/>
+                </StackLayout>
+                <BoxView x:Name="seperator"  
+                       BindingContext="{x:Reference bookingFrame}" 
+                       WidthRequest="{Binding Width}"
+                       HeightRequest="0.5"
+                       Color="#5b5d68"></BoxView>   
+                <Label x:Name="roomName"/>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

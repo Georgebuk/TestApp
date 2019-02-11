@@ -1,0 +1,42 @@
+﻿CREATE TABLE [dbo].[hot_cust] (
+    [cust_id]          INT           IDENTITY (1, 1) NOT NULL,
+    [cust_first_name]  VARCHAR (255) NULL,
+    [cust_last_name]   VARCHAR (255) NOT NULL,
+    [cust_email]       VARCHAR (255) NOT NULL,
+    [cust_phonenumber] VARCHAR (15)  NULL,
+    [cust_dob] DATE NOT NULL, 
+    PRIMARY KEY CLUSTERED ([cust_id] ASC)
+);
+
+CREATE TABLE hotel(
+hotel_id int IDENTITY(1,1) PRIMARY KEY,
+hotel_name VARCHAR(255),
+hotel_postcode VARCHAR(10) NOT NULL,
+hotel_address1 VARCHAR(255),
+hotel_address2 VARCHAR(255),
+hotel_city VARCHAR(100)
+);
+
+CREATE TABLE [dbo].[cust_booking] (
+    [booking_id]        INT        IDENTITY (1, 1) NOT NULL,
+    [hotel_id]          INT        NOT NULL,
+    [cust_id]           INT        NOT NULL,
+    [date_booking_made] DATETIME NOT NULL,
+    [date_for_booking]  DATE       NOT NULL,
+    [booking_activated] BIT        DEFAULT ((0)) NOT NULL,
+    [hide_booking]      BIT        DEFAULT ((0)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([booking_id] ASC),
+    FOREIGN KEY ([cust_id]) REFERENCES [dbo].[hot_cust] ([cust_id]),
+    FOREIGN KEY ([hotel_id]) REFERENCES [dbo].[hotel] ([hotel_id])
+);
+
+INSERT INTO hot_cust(cust_first_name, cust_last_name, cust_email, cust_phonenumber, cust_dob) 
+VALUES ('George', 'Boulton', 'george.boulton@hotmail.co.uk', '07411762329', '1996/05/21')
+
+INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, hotel_city)
+VALUES('Premier Inn', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent')
+
+INSERT INTO cust_booking(hotel_id, cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking)
+VALUES(1, 2, '2019/02/01', '2019/02/02', 0, 0)
+INSERT INTO cust_booking(hotel_id, cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking)
+VALUES(1, 2, '2019/02/01', '2019/05/21', 0, 0)
