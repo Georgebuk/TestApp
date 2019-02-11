@@ -37,6 +37,6 @@ INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, ho
 VALUES('Premier Inn', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent')
 
 INSERT INTO cust_booking(hotel_id, cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking)
-VALUES(1, 2, '2019/02/01', '2019/02/02', 0, 0)
+VALUES(1, 1, '2019/02/01', '2019/02/02', 0, 0)
 INSERT INTO cust_booking(hotel_id, cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking)
-VALUES(1, 2, '2019/02/01', '2019/05/21', 0, 0)
+VALUES(1, 1, '2019/02/01', '2019/05/21', 0, 0)
