@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\HotelClassLibrary\HotelClassLibrary\HotelClassLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Pages\BookingsPage.xaml.cs">
       <DependentUpon>BookingsPage.xaml</DependentUpon>
     </Compile>
