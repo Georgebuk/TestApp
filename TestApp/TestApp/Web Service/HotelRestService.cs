@@ -1,33 +1,30 @@
-﻿using HotelClassLibrary;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using HotelClassLibrary;
+using Newtonsoft.Json;
 
-namespace TestApp
+namespace TestApp.Web_Service
 {
-    public class RestService : IRestService
+    public class HotelRestService
     {
         HttpClient Client;
-        public List<Booking> Bookings { get; private set; }
-
-        public RestService()
+        public HotelRestService()
         {
             Client = new HttpClient();
             Client.MaxResponseContentBufferSize = 256000;
-            
         }
-        public async Task<List<Booking>> RefreshDataAsync()
+
+        public async Task<List<Hotel>> RefreshDataAsync()
         {
-            //Url = http://192.168.0.24:57162/api/booking
-            string bookingAPIURI = "http://192.168.0.24:57162/api/booking/{0}";
-            bookingAPIURI = string.Format(bookingAPIURI, Globals.loggedInCustomer.CustId);
+            //Url = http://192.168.0.24:57162/api/hotel
+
+            string bookingAPIURI = "http://192.168.0.24:57162/api/Hotel";
             var uri = new Uri(bookingAPIURI);
 
-            List<Booking> bookings = new List<Booking>();
+            List<Hotel> hotels = new List<Hotel>();
             try
             {
                 var response = await Client.GetAsync(uri);
@@ -36,14 +33,15 @@ namespace TestApp
                     var content = await response.Content.ReadAsStringAsync();
                     content = content.Replace("\\", string.Empty);
                     content = content.Trim('"');
-                    bookings = JsonConvert.DeserializeObject<List<Booking>>(content);
+                    hotels = JsonConvert.DeserializeObject<List<Hotel>>(content);
+                    string meme = "";
                 }
             }
             catch (Exception ex)
             {
-                string error = ex.ToString();
+                string meme = ex.ToString();
             }
-            return bookings;
+            return hotels;
         }
 
         public Task SaveBookingAsync(Booking item, bool isNewItem)

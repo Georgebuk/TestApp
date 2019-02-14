@@ -8,7 +8,7 @@ namespace TestApp
 {
     interface IRestService
     {
-        Task<List<Booking>> RefreshDataAsync();
+        Task<List<Object>> RefreshDataAsync();
 
         Task SaveBookingAsync(Booking item, bool isNewItem);
     }
