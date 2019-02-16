@@ -25,9 +25,13 @@ namespace TestApp.Pages
             List<Hotel> hotels = await service.RefreshDataAsync();
             foreach (Hotel h in hotels)
             {
-                Label l = new Label();
-                l.Text = h.HotelName;
-                hotelStack.Children.Add(l);
+                HotelCustomControl hcl = new HotelCustomControl
+                {
+                    CityLabelText = h.City,
+                    HotelLabelText = h.HotelName,
+                    HotelImage = "@drawable/premierInn.jpg"
+                };
+                hotelStack.Children.Add(hcl);
             }
         }
 	}

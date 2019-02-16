@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout x:Name="hotelStack">
             <!-- Place new controls here -->
-            <!-- Bookings are generated in  -->
+            <!-- Bookings are generated in BookingPage.xaml.cs -->
         </StackLayout>
     </ScrollView>
 </ContentPage>
