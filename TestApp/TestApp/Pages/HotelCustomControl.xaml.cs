@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace TestApp.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HotelCustomControl : ContentView
 	{
+        public Hotel ThisHotel { get; set; }
         public static readonly BindableProperty HotelLabelProperty =
             BindableProperty.Create("HotelLabelText", typeof(string), typeof(HotelCustomControl), default(string));
         public string HotelLabelText
@@ -45,11 +47,15 @@ namespace TestApp.Pages
 
             //Register a click event for each control
             var tapGestureRecognister = new TapGestureRecognizer();
-            tapGestureRecognister.Tapped += (s, e) =>
+            tapGestureRecognister.Tapped += async (s, e) =>
             {
-              
+                var SelectedHotelPage = new NavigationPage(new SelectedHotelPage(ThisHotel));
+                await Navigation.PushAsync(SelectedHotelPage);
             };
             hotelFrame.GestureRecognizers.Add(tapGestureRecognister);
         }
+
+
+
 	}
 }

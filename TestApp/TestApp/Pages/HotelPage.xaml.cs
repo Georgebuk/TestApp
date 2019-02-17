@@ -29,7 +29,9 @@ namespace TestApp.Pages
                 {
                     CityLabelText = h.City,
                     HotelLabelText = h.HotelName,
-                    HotelImage = "@drawable/premierInn.jpg"
+                    HotelImage = "@drawable/premierInn.jpg",
+                    ThisHotel = h
+                    
                 };
                 hotelStack.Children.Add(hcl);
             }
