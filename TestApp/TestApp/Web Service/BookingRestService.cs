@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -13,8 +14,20 @@ namespace TestApp
     {
         HttpClient Client;
         public List<Booking> Bookings { get; private set; }
+        private static BookingRestService instance;
 
-        public BookingRestService()
+        public static BookingRestService Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new BookingRestService();
+                return instance;
+            }
+        }
+
+
+        private BookingRestService()
         {
             Client = new HttpClient();
             Client.MaxResponseContentBufferSize = 256000;
@@ -46,9 +59,29 @@ namespace TestApp
             return bookings;
         }
 
-        public Task SaveBookingAsync(Booking item, bool isNewItem)
+        public async Task SaveBookingAsync(Booking item, bool isNewItem)
         {
-            throw new NotImplementedException();
+            string bookingAPIURI = "http://192.168.0.24:57162/api/booking";
+            var Uri = new Uri(bookingAPIURI);
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(item);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                    response = await Client.PostAsync(Uri, content);
+                else
+                    response = await Client.PutAsync(Uri, content);
+
+                if (response.IsSuccessStatusCode)
+                    Debug.WriteLine("Item successfully saved");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("ERROR OCCURED WHEN SAVING BOOKING: {0}", ex.Message);
+            }
         }
     }
 }

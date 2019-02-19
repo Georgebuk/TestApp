@@ -20,7 +20,7 @@ namespace TestApp
         {
             try
             {
-                BookingRestService service = new BookingRestService();
+                BookingRestService service = BookingRestService.Instance;
                 List<Booking> bookings = await service.RefreshDataAsync();
                 foreach (Booking book in bookings)
                 {

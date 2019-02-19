@@ -9,6 +9,8 @@
             <Label x:Name="hotelName"/>
             <Label x:Name="hotelDesc"/>
             <Label x:Name="hotelNumberRooms"/>
+            <DatePicker x:Name="bookingDatePicker"/>
+            <Button x:Name="bookButton" Clicked="BookButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
