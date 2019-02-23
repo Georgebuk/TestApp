@@ -37,7 +37,7 @@ namespace TestApp
 
         private async void test2()
         {
-            HotelRestService service = new HotelRestService();
+            HotelRestService service = HotelRestService.Instance;
             List<Hotel> hotels = await service.RefreshDataAsync();
             string meme = "";
         }

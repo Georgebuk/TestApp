@@ -21,7 +21,7 @@ namespace TestApp.Pages
 
         async void populateHotels()
         {
-            HotelRestService service = new HotelRestService();
+            HotelRestService service = HotelRestService.Instance;
             List<Hotel> hotels = await service.RefreshDataAsync();
             foreach (Hotel h in hotels)
             {

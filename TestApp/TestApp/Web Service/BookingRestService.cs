@@ -12,6 +12,7 @@ namespace TestApp
 {
     public class BookingRestService
     {
+        //SINGLETON
         HttpClient Client;
         public List<Booking> Bookings { get; private set; }
         private static BookingRestService instance;
@@ -26,17 +27,20 @@ namespace TestApp
             }
         }
 
-
+        //Private constructor as this uses a singleton to avoid multiple connections
+        //being made to the API from the same phone
         private BookingRestService()
         {
+            //Setup property to hold connection with API
             Client = new HttpClient();
             Client.MaxResponseContentBufferSize = 256000;
-            
         }
+
+        //This method gets a list of all the users bookings from the web service
         public async Task<List<Booking>> RefreshDataAsync()
         {
             //Url = http://192.168.0.24:57162/api/booking
-            string bookingAPIURI = "http://192.168.0.24:57162/api/booking/{0}";
+            string bookingAPIURI = Globals.WEBAPIURI + "booking/{0}";
             bookingAPIURI = string.Format(bookingAPIURI, Globals.loggedInCustomer.CustId);
             var uri = new Uri(bookingAPIURI);
 
@@ -61,7 +65,7 @@ namespace TestApp
 
         public async Task SaveBookingAsync(Booking item, bool isNewItem)
         {
-            string bookingAPIURI = "http://192.168.0.24:57162/api/booking";
+            string bookingAPIURI = Globals.WEBAPIURI + "booking";
             var Uri = new Uri(bookingAPIURI);
 
             try
