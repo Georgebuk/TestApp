@@ -87,5 +87,7 @@ namespace TestApp
                 Debug.WriteLine("ERROR OCCURED WHEN SAVING BOOKING: {0}", ex.Message);
             }
         }
+
+        
     }
 }

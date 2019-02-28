@@ -28,7 +28,9 @@ namespace TestApp
                     {
                         DateLabelText = book.DateOfBooking.Date.ToString(),
                         HotelLabelText = book.Hotel.HotelName,
-                        RoomLabelText = book.BookedRoom.RoomNumber.ToString()
+                        RoomLabelText = book.BookedRoom.RoomNumber.ToString(),
+                        ThisBooking = book
+                        
                     };
                     hotelStack.Children.Add(rbc);
                 }

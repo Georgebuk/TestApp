@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="booking_information_label">Booking Information</string>
+  <string name="qrcode_label">Your Key</string>
+  <string name="hello">Hello</string>
+</resources>
