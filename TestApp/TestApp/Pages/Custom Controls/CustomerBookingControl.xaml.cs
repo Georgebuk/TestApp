@@ -1,4 +1,6 @@
-﻿using HotelClassLibrary;
+﻿using Android.Content;
+using HotelClassLibrary;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +54,10 @@ namespace TestApp
             tapGestureRecognister.Tapped += async (s, e) =>
             {
                 DependencyService.Register<IViewBarcodePage>();
-                DependencyService.Get<IViewBarcodePage>().StartNativeIntentOrActivity();
+                string bookingjson = JsonConvert.SerializeObject(ThisBooking);
+                DependencyService.Get<IViewBarcodePage>().StartNativeIntentOrActivity(bookingjson);
+
+
                 //var SelectedBookingPage = new NavigationPage(new SelectedBookingPage(ThisBooking));
                 //await Navigation.PushAsync(SelectedBookingPage);
             };

@@ -18,9 +18,10 @@ namespace TestApp.Droid
     [Activity(Label = "BookingPageActivity")]
     public class BookingPageActivity : IViewBarcodePage
     {
-        public void StartNativeIntentOrActivity()
+        public void StartNativeIntentOrActivity(string bookingJSON)
         {
             var intent = new Intent(Android.App.Application.Context, typeof(SelectedBookingPage));
+            intent.PutExtra("BookingJSON", bookingJSON);
             Android.App.Application.Context.StartActivity(intent);
         }
     }

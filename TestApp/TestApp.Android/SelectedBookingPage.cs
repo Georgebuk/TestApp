@@ -12,6 +12,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using HotelClassLibrary;
+using Newtonsoft.Json;
 using ZXing;
 
 
@@ -21,6 +22,7 @@ namespace TestApp.Droid
     public class SelectedBookingPage : Activity
     {
         Fragment[] _fragments;
+        Booking ThisBooking;
         static readonly string Tag = "ActionBarTabsSupport";
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,30 +38,18 @@ namespace TestApp.Droid
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
             SetContentView(Resource.Layout.SelectedBooking);
 
+            ThisBooking = JsonConvert.DeserializeObject<Booking>(Intent.GetStringExtra("BookingJSON"));
+
             _fragments = new Fragment[]
             {
                 new BookingInformationFragment(),
-                new QRCodeFragment()
+                new QRCodeFragment(ThisBooking)
             };
 
             AddTabToActionBar(Resource.String.booking_information_label, Resource.Drawable.booking);
             AddTabToActionBar(Resource.String.qrcode_label, Resource.Drawable.accountcircle);
 
-            //BarcodeWriter writer = new BarcodeWriter()
-            //{
-            //    Format = BarcodeFormat.QR_CODE,
-            //    Options = new ZXing.Common.EncodingOptions
-            //    {
-            //        Height = 200,
-            //        Width = 200
-            //    }
-            //};
-            //ImageView image = FindViewById<ImageView>(Resource.Id.imageView1);
-            //var result = writer.Write("TestTestTESTtest");
-
-
-
-            //image.SetImageBitmap(result);
+            
 
         }
 

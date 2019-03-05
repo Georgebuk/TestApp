@@ -9,6 +9,6 @@ namespace TestApp
     public class Globals
     {
         public static Customer loggedInCustomer = new Customer();
-        public static string WEBAPIURI = "http://192.168.0.24:57162/api/";
+        public static string WEBAPIURI = "http://192.168.0.24:45455/api/";
     }
 }

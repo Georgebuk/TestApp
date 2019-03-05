@@ -10,5 +10,6 @@
 		android:text="fragment test" />
 	<ImageView android:id="@+id/imageView2"
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"/>
+		android:layout_width="wrap_content"
+		android:layout_gravity="center_horizontal"/>
 </LinearLayout>
