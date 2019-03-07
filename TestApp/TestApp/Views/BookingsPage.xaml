@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestApp"
+             xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="TestApp.BookingsPage"
+             Title="Your Bookings">
+    <StackLayout>
+        <ListView x:Name="BookingListView" 
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  HasUnevenRows="True" 
+                  ItemsSource="{Binding Bookings}"
+                  ItemTapped="BookingListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE">
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
+                                        <Label Text="{Binding HotelName}"/>
+                                        <Label Text="{Binding DateOfBookingAsString}"/>
+                                    </StackLayout>
+                                    <BoxView x:Name="seperator"  
+                                    BindingContext="{x:Reference bookingFrame}" 
+                                    WidthRequest="{Binding Width}"
+                                    HeightRequest="0.5"
+                                    Color="#5b5d68"></BoxView>
+                                    <Label x:Name="roomName" Text="{Binding RoomName}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -11,9 +11,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.2.3" />
     <PackageReference Include="sqlite-net" Version="1.0.8" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
-    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />
     <PackageReference Include="ZXing.Net" Version="0.16.4" />
   </ItemGroup>
 
@@ -28,43 +29,37 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Pages\BookingsPage.xaml.cs">
+    <Compile Update="Views\BookingsPage.xaml.cs">
       <DependentUpon>BookingsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\Custom Controls\CustomerBookingControl.xaml.cs">
-      <DependentUpon>CustomerBookingControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\AccountSettings.xaml">
+    <EmbeddedResource Update="Views\AccountSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\HomePage.xaml">
+    <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Custom Controls\HotelCustomControl.xaml">
+    <EmbeddedResource Update="Views\Custom Controls\HotelCustomControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\HotelPage.xaml">
+    <EmbeddedResource Update="Views\HotelPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MasterPage.xaml">
+    <EmbeddedResource Update="Views\MasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\NewMainPage.xaml">
+    <EmbeddedResource Update="Views\NewMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Page1.xaml">
+    <EmbeddedResource Update="Views\Page1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Custom Controls\CustomerBookingControl.xaml">
+    <EmbeddedResource Update="Views\SelectedBookingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SelectedBookingPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\SelectedHotelPage.xaml">
+    <EmbeddedResource Update="Views\SelectedHotelPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
