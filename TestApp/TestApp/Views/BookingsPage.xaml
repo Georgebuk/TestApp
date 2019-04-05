@@ -6,7 +6,11 @@
              xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              x:Class="TestApp.BookingsPage"
              Title="Your Bookings">
-    <StackLayout>
+    <AbsoluteLayout>
+        <Label Text="You do not have any bookings! Hop on over to the Search for Hotel page and get started!"
+               VerticalTextAlignment="Center"
+               VerticalOptions="FillAndExpand"
+               IsVisible="{Binding HideLabel_IsVisible}"/>
         <ListView x:Name="BookingListView" 
                   IsPullToRefreshEnabled="True"
                   RefreshCommand="{Binding RefreshCommand}"
@@ -18,7 +22,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE">
+                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE" IsVisible="{Binding BookingVisible}">
                                 <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
                                     <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
                                         <Label Text="{Binding HotelName}"/>
@@ -37,5 +41,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

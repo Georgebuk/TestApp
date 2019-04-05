@@ -22,6 +22,7 @@ namespace TestApp
             {
                 MasterBehavior = MasterBehavior.Popover;
             }
+            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
         }
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

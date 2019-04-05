@@ -13,6 +13,7 @@
             <Picker x:Name="daysPicker" SelectedIndexChanged="DaysPicker_SelectedIndexChanged"/>
             <Label x:Name="AvailableLabel"/>
             <Button x:Name="bookButton" Clicked="BookButton_Clicked"/>
+            <Label x:Name="responseLabel" IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

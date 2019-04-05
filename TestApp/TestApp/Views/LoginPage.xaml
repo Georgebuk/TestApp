@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.Views.LoginPage"
+             Title="Login">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+            <Entry Placeholder="Email" x:Name="EntryEmail"></Entry>
+            <Entry Placeholder="Password" x:Name ="EntryPassword" IsPassword="True"></Entry>
+            <Button Text="Log In" TextColor="White" BackgroundColor="Black" Clicked="LoginButton_Clicked"></Button>
+            <Label x:Name="errorLabelNoUser" Text="No user found with the specified email or password. Please try again" TextColor="Red" IsVisible="False"></Label>
+            <Label x:Name="errorLabelNoEntry" Text="Please enter an email address and password" TextColor="Red" IsVisible="False"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

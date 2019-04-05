@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestApp.ViewModel;
 using TestApp.Web_Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,28 +14,23 @@ namespace TestApp.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HotelPage : ContentPage
 	{
+        HotelViewModel hm;
 		public HotelPage ()
 		{
 			InitializeComponent ();
-            populateHotels();
+            hm = new HotelViewModel();
+            BindingContext = hm;
 		}
 
-        async void populateHotels()
+        private void HotelListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            HotelRestService service = HotelRestService.Instance;
-            List<Hotel> hotels = await service.RefreshDataAsync();
-            foreach (Hotel h in hotels)
-            {
-                HotelCustomControl hcl = new HotelCustomControl
-                {
-                    CityLabelText = h.City,
-                    HotelLabelText = h.HotelName,
-                    HotelImage = "@drawable/premierInn.jpg",
-                    ThisHotel = h
-                    
-                };
-                hotelStack.Children.Add(hcl);
-            }
+            loadHotelPage((Hotel)e.Item);
         }
-	}
+
+        private async void loadHotelPage(Hotel h)
+        {
+            var SelectedHotelPage = new NavigationPage(new SelectedHotelPage(h));
+            await Navigation.PushAsync(SelectedHotelPage);
+        }
+    }
 }

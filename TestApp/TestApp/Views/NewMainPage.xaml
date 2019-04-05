@@ -9,9 +9,6 @@
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
-            <x:Arguments>
-                <local:HomePage />
-            </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>

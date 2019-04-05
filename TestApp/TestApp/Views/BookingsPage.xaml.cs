@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using Xamarin.Forms;
 
 namespace TestApp
@@ -19,9 +20,18 @@ namespace TestApp
         {
             if (e.Item != null)
             {
-                DependencyService.Register<IViewBarcodePage>();
-                string bookingjson = JsonConvert.SerializeObject(e.Item);
-                DependencyService.Get<IViewBarcodePage>().StartNativeIntentOrActivity(bookingjson);
+                try
+                {
+                    //Start a new activity natively in Android passing in the selected booking
+                    //The booking info will be used to populate the new activity
+                    DependencyService.Register<IViewBarcodePage>();
+                    string bookingjson = JsonConvert.SerializeObject(e.Item);
+                    DependencyService.Get<IViewBarcodePage>().StartNativeIntentOrActivity(bookingjson);
+                }
+                catch (Exception ex)
+                {
+                    string meme = ex.ToString();
+                }
             }
         }
 

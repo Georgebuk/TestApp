@@ -1,32 +1,24 @@
 ﻿using HotelClassLibrary;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Text;
 using System.Windows.Input;
+using TestApp.Web_Service;
 using Xamarin.Forms;
 
-namespace TestApp
+namespace TestApp.ViewModel
 {
-    public class BookingViewModel : INotifyPropertyChanged
+    public class HotelViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Booking> Bookings { get; set; }
+        public ObservableCollection<Hotel> Hotels { get; set; }
 
         //When is refreshing is true the refresh animation continues to trigger
         //When isRefreshing is false the animation stops
         private bool _isRefreshing = false;
 
-        private bool _hideBooking_IsVisible;
-
-        public bool HideBooking_IsVisible
-        {
-            get { return _hideBooking_IsVisible; }
-            set { _hideBooking_IsVisible = false; }
-        }
-
-        public bool HideLabel_IsVisible
-        {
-            get { if (Bookings.Count > 0) return false; else return true; }
-        }
-
+        //Notifies the view when a property is updated
         public bool IsRefreshing
         {
             get { return _isRefreshing; }
@@ -37,8 +29,8 @@ namespace TestApp
             }
         }
 
-        //Notifies the view when a property is updated
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -46,22 +38,22 @@ namespace TestApp
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-  
-        public BookingViewModel()
+
+        public HotelViewModel()
         {
-            Bookings = new ObservableCollection<Booking>();
-            getBookings();
+            Hotels = new ObservableCollection<Hotel>();
+            getHotels();
         }
 
-        //Calls the web servive to get a list of all bookings for loggin in customer
-        private async void getBookings()
+        private async void getHotels()
         {
-            BookingRestService service = BookingRestService.Instance;
-            Bookings.Clear();
-            var bookings = await service.RefreshDataAsync();
-            foreach (Booking b in bookings)
-                Bookings.Add(b);
+            HotelRestService service = HotelRestService.Instance;
+            Hotels.Clear();
+            var hotels = await service.RefreshDataAsync();
+            foreach (Hotel h in hotels)
+                Hotels.Add(h);
         }
+
         //Command to bind refreshing behaviour from view to view model
         public ICommand RefreshCommand
         {
@@ -71,7 +63,7 @@ namespace TestApp
                 {
                     IsRefreshing = true; //Start refreshing animation
 
-                    getBookings(); //Get bookings for user
+                    getHotels(); //Get bookings for user
 
                     IsRefreshing = false; //Stop refreshing animation
                 });

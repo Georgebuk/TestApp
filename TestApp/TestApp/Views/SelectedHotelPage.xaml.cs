@@ -37,19 +37,34 @@ namespace TestApp
 			}
 		}
 
-		private void BookButton_Clicked(object sender, EventArgs e)
+		private async void BookButton_Clicked(object sender, EventArgs e)
 		{
+			string responseString = "";
 			var selectedBookingDate = bookingStartDatePicker.Date;
 			if (selectedBookingDate != null)
 			{
 				Booking newBooking = createNewBooking(selectedBookingDate);
 				try
 				{
-					BookingRestService.Instance.SaveBookingAsync(newBooking, true);
+					var response = await BookingRestService.Instance.SaveBookingAsync(newBooking, true);
+					if (response == ErrorEnum.BOOKING_FAILED)
+					{
+						responseString += "Error occured when creating booking. Please try again";
+						responseLabel.Text = responseString;
+						responseLabel.TextColor = Color.Red;
+						responseLabel.IsVisible = true;
+					}
+					else
+					{
+						responseString += "Booking Successful";
+						responseLabel.Text = responseString;
+						responseLabel.TextColor = Color.Green;
+						responseLabel.IsVisible = true;
+					}
 				}
 				catch (Exception ex)
 				{
-					DisplayAlert("Error","Error occured when attempting to create your booking.\nPlease try again", "OK");
+					await DisplayAlert("Error","Error occured when attempting to create your booking.\nPlease try again", "OK");
 				}
 			}
 		}

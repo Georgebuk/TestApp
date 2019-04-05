@@ -2,9 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.Pages.HotelPage">
-    <ContentPage.Content>
-        <StackLayout x:Name="hotelStack">
-            
-        </StackLayout>
-    </ContentPage.Content>
+    <ListView x:Name="HotelListView" 
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  HasUnevenRows="True" 
+                  ItemsSource="{Binding Hotels}"
+                  ItemTapped="HotelListView_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Frame x:Name="hotelFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE" >
+                            <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
+                                <Image x:Name="hotelImage" 
+                                       BindingContext="{x:Reference hotelFrame}" 
+                                       WidthRequest="{Binding Width}" 
+                                       Source="{Binding ImageURL}"/>
+                                <Label x:Name="hotelName" Text="{Binding HotelName}"/>
+                                <Label x:Name="hotelCity" Text="{Binding City}"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

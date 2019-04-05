@@ -3,13 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.AccountSettings">
     <ContentPage.Content>
-        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-            <Label Text="Bitch"
-                   x:Name="accountLabel" />
-            <Label x:Name="notYouLabel"
-                    Text="Not you?" 
-                    TextColor="Blue"
-                    TextDecorations="Underline"/>
+        <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
+            <Entry Placeholder="Mail id"></Entry>
+            <Entry Placeholder="Password" IsPassword="True"></Entry>
+            <Button Text="Log In" TextColor="White" BackgroundColor="##ff77D065" Clicked="LoginButton_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

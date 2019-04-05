@@ -6,14 +6,14 @@
 			 Title="Kill me">
 	<StackLayout>
 		<ListView x:Name="listView" x:FieldModifier="public">
-			<ListView.ItemsSource>
-				<x:Array Type="{x:Type local:MasterPageItem}">
-					<local:MasterPageItem Title="Your Bookings" IconSource="booking.png" TargetType="{x:Type local:BookingsPage}" />
+			<!--<ListView.ItemsSource>
+				<x:Array Type="{x:Type local:MasterPageItem}" x:Name="itemList">
+					<local:MasterPageItem Title="Your Bookings" IconSource="booking.png" TargetType="{x:Type local:BookingsPage}"/>
 					<local:MasterPageItem Title="Home" IconSource="settingscog.png" TargetType="{x:Type local:NewMainPage}" />
 					<local:MasterPageItem Title="Account Settings" IconSource="accountcirclenopadding.png" TargetType="{x:Type local:AccountSettings}" />
 					<local:MasterPageItem Title="Search for Hotel" IconSource="accountcirclenopadding.png" TargetType="{x:Type local:Pages.HotelPage}" />
 				</x:Array>
-			</ListView.ItemsSource>
+			</ListView.ItemsSource>-->
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>

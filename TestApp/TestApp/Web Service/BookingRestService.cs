@@ -63,7 +63,9 @@ namespace TestApp
             return bookings;
         }
 
-        public async Task SaveBookingAsync(Booking item, bool isNewItem)
+        //Save booking details, if the booking is new then use post method, otherwise
+        //use the PUT method
+        public async Task<ErrorEnum> SaveBookingAsync(Booking item, bool isNewItem)
         {
             string bookingAPIURI = Globals.WEBAPIURI + "booking";
             var Uri = new Uri(bookingAPIURI);
@@ -80,12 +82,16 @@ namespace TestApp
                     response = await Client.PutAsync(Uri, content);
 
                 if (response.IsSuccessStatusCode)
+                {
                     Debug.WriteLine("Item successfully saved");
+                    return ErrorEnum.SUCCESS;
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("ERROR OCCURED WHEN SAVING BOOKING: {0}", ex.Message);
             }
+            return ErrorEnum.BOOKING_FAILED;
         }
 
         
