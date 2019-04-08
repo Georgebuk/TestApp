@@ -4,9 +4,8 @@
              x:Class="TestApp.AccountSettings">
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
-            <Entry Placeholder="Mail id"></Entry>
-            <Entry Placeholder="Password" IsPassword="True"></Entry>
-            <Button Text="Log In" TextColor="White" BackgroundColor="##ff77D065" Clicked="LoginButton_Clicked"></Button>
+            <Label x:Name="accountLabel"/>
+            <Button Text="Logout" TextColor="White" BackgroundColor="#ff77D065" Clicked="LogoutButton_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

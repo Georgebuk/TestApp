@@ -39,7 +39,7 @@ namespace TestApp.Views
                 if (c.CustId != 0)
                 {
                     //Set the logged in user
-                    Application.Current.Properties["loggedInCustomer"] = JsonConvert.SerializeObject(c);
+                    Globals.loggedInCustomer = c;
                     //Redirect to a new main page to re-populate side menu
                     Application.Current.MainPage = new NewMainPage();
                 }

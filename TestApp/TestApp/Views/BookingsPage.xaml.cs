@@ -35,6 +35,9 @@ namespace TestApp
             }
         }
 
-        
+        private void BookingsSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

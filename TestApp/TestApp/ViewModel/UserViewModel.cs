@@ -40,7 +40,7 @@ namespace TestApp.ViewModel
 
         public UserViewModel()
         {
-            if(Application.Current.Properties.ContainsKey("loggedInCustomer"))
+            if(Globals.loggedInCustomer != null)
                 LoggedInCustomer = JsonConvert.DeserializeObject<Customer>(Application.Current.Properties["loggedInUser"].ToString());
         }
     }

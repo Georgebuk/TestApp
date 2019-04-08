@@ -42,8 +42,11 @@ CREATE TABLE [dbo].[ROOM] (
     FOREIGN KEY ([hotel_ID]) REFERENCES [dbo].[hotel] ([hotel_id])
 );
 
+INSERT INTO hot_cust(cust_first_name, cust_last_name, cust_email, cust_phonenumber, cust_dob, cust_password) 
+VALUES ('George', 'Boulton', 'george.boulton@hotmail.co.uk', '07411762329', '1996/05/21', 'LHvGkIp870LnugAwmLYbeJgvbIAD8+kyZZkTJR4QIIPUWQ9j')
+
 INSERT INTO hot_cust(cust_first_name, cust_last_name, cust_email, cust_phonenumber, cust_dob) 
-VALUES ('George', 'Boulton', 'george.boulton@hotmail.co.uk', '07411762329', '1996/05/21')
+VALUES ('Johnathon', 'Smith', 'john.smith@jsmith.com', '07411762329', '1995/01/14', 'uXh1PNcPW1ucWC8sehgDaG/haGkrA3DeUnx6xLYDCzhZDwGL')
 
 INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, hotel_city, hotel_desc)
 VALUES('Premier Inn', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS VERY NICE')
@@ -73,6 +76,3 @@ INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (201, 2, 30.5);
 INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (202, 2, 30.5);
 INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (203, 2, 30.5);
 INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (204, 2, 30.5);
-
-5	1	21/02/2019 15:49:33	22/02/2019	False	False	1	27/02/2019	01d4e959-f983-4e33-a0e8-d753986bda1c
-6	1	21/02/2019 16:24:40	22/02/2019	False	False	2	27/02/2019	01d4e959-f983-4e33-a0e8-d753986bda1c

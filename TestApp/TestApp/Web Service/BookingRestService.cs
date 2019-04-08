@@ -37,11 +37,11 @@ namespace TestApp
         }
 
         //This method gets a list of all the users bookings from the web service
-        public async Task<List<Booking>> RefreshDataAsync()
+        public async Task<List<Booking>> RefreshDataAsync(int id)
         {
             //Url = http://192.168.0.24:57162/api/booking
             string bookingAPIURI = Globals.WEBAPIURI + "booking/{0}";
-            bookingAPIURI = string.Format(bookingAPIURI, Globals.loggedInCustomer.CustId);
+            bookingAPIURI = string.Format(bookingAPIURI, id);
             var uri = new Uri(bookingAPIURI);
 
             List<Booking> bookings = new List<Booking>();

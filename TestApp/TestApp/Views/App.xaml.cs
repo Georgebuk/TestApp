@@ -10,8 +10,8 @@ namespace TestApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NewMainPage();
+            
+            MainPage = new NewMainPage();           
         }
 
         protected override void OnStart()

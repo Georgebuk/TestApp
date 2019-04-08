@@ -1,4 +1,5 @@
 ﻿using HotelClassLibrary;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -8,23 +9,58 @@ namespace TestApp
 {
     public class BookingViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Booking> Bookings { get; set; }
+        ObservableCollection<Booking> booking = new ObservableCollection<Booking>();
+        public ObservableCollection<Booking> Bookings
+        {
+            get { return booking; }
+            set
+            {
+                booking = value;
+                if (value.Count > 0)
+                {
+                    Search_IsVisible = true;
+                    HideLabel_IsVisible = false;
+                }
+                else
+                {
+                    Search_IsVisible = false;
+                    HideLabel_IsVisible = true;
+                }
+                OnPropertyChanged(nameof(Bookings));
+            }
+        }
 
         //When is refreshing is true the refresh animation continues to trigger
         //When isRefreshing is false the animation stops
         private bool _isRefreshing = false;
 
         private bool _hideBooking_IsVisible;
+        private bool _search_IsVisible;
 
-        public bool HideBooking_IsVisible
+        public bool Search_IsVisible
         {
-            get { return _hideBooking_IsVisible; }
-            set { _hideBooking_IsVisible = false; }
+            get
+            {
+                return _search_IsVisible;
+            }
+            set
+            {
+                _search_IsVisible = value;
+                OnPropertyChanged(nameof(Search_IsVisible));
+            }
         }
 
         public bool HideLabel_IsVisible
         {
-            get { if (Bookings.Count > 0) return false; else return true; }
+            get
+            {
+                return _hideBooking_IsVisible;
+            }
+            set
+            {
+                _hideBooking_IsVisible = value;
+                OnPropertyChanged(nameof(HideLabel_IsVisible));
+            }
         }
 
         public bool IsRefreshing
@@ -41,12 +77,10 @@ namespace TestApp
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            this.PropertyChanged?.Invoke(this, new
+                PropertyChangedEventArgs(propertyName));
         }
-  
+
         public BookingViewModel()
         {
             Bookings = new ObservableCollection<Booking>();
@@ -56,11 +90,21 @@ namespace TestApp
         //Calls the web servive to get a list of all bookings for loggin in customer
         private async void getBookings()
         {
-            BookingRestService service = BookingRestService.Instance;
-            Bookings.Clear();
-            var bookings = await service.RefreshDataAsync();
-            foreach (Booking b in bookings)
-                Bookings.Add(b);
+            try
+            {
+                BookingRestService service = BookingRestService.Instance;
+                Bookings.Clear();
+                var bookings = await service.RefreshDataAsync(Globals.loggedInCustomer.CustId);
+                ObservableCollection<Booking> book = new ObservableCollection<Booking>();
+                foreach (Booking b in bookings)
+                    book.Add(b);
+
+                Bookings = book;
+            }
+            catch (Exception e)
+            {
+
+            }
         }
         //Command to bind refreshing behaviour from view to view model
         public ICommand RefreshCommand
@@ -76,6 +120,11 @@ namespace TestApp
                     IsRefreshing = false; //Stop refreshing animation
                 });
             }
+        }
+
+        public void updateBookings(string filter)
+        {
+            
         }
     }
 }

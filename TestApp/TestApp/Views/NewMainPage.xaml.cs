@@ -15,7 +15,7 @@ namespace TestApp
         public NewMainPage ()
         {
             InitializeComponent();
-
+            //Globals.loggedInCustomer = null;
             masterPage.listView.ItemSelected += OnItemSelected;
 
             if (Device.RuntimePlatform == Device.UWP)

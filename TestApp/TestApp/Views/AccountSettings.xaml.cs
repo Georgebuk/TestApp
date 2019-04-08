@@ -24,7 +24,7 @@ namespace TestApp
             //um = new UserViewModel();
             //BindingContext = um;
 
-			//accountLabel.Text =  "Logged in with" + Globals.loggedInCustomer.Email;
+			accountLabel.Text =  "Logged in with" + Globals.loggedInCustomer.Email;
 
 			//var tapGestureRecognister = new TapGestureRecognizer();
 			//tapGestureRecognister.Tapped += (s, e) =>
@@ -35,10 +35,14 @@ namespace TestApp
 			//notYouLabel.GestureRecognizers.Add(tapGestureRecognister);
 		}
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LogoutButton_Clicked(object sender, EventArgs e)
         {
-            Customer c = await UserRestService.Instance.GetUser("george.boulton@hotmail.co.uk", "meme");
-            Application.Current.Properties["LoggedInUser"] = JsonConvert.SerializeObject(c);
+            if (Globals.loggedInCustomer != null)
+            {
+                Globals.loggedInCustomer = null;
+                Application.Current.MainPage = new NewMainPage();
+            }
+
         }
     }
 }

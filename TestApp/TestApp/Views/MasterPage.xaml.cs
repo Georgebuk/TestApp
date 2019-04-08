@@ -19,7 +19,7 @@ namespace TestApp
             {
                 List<MasterPageItem> items = new List<MasterPageItem>();
                 //Application.Current.Properties["loggedInCustomer"] = JsonConvert.SerializeObject(Globals.loggedInCustomer);
-                if (Application.Current.Properties.ContainsKey("loggedInCustomer"))
+                if (Globals.loggedInCustomer != null)
                 {
                     items.Add(new MasterPageItem { Title = "Home", IconSource = "settingscog.png", TargetType = typeof(NewMainPage) });
                     items.Add(new MasterPageItem { Title = "Bookings", IconSource = "booking.png", TargetType = typeof(BookingsPage) });                  

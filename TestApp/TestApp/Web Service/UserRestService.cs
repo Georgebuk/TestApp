@@ -64,6 +64,8 @@ namespace TestApp.Web_Service
             string newUserURI = Globals.WEBAPIURI + "user/register";
             var URI = new Uri(newUserURI);
 
+            c.Password = PasswordHasher.Hash(c.Password);
+
             var param = JsonConvert.SerializeObject(c);
             var content = new StringContent(param, Encoding.UTF8, "application/json");
             try
