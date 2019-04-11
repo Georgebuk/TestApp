@@ -28,14 +28,8 @@ namespace TestApp.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            try
-            {
-                SetContentView(Resource.Layout.SelectedBooking);
-            }
-            catch (Exception ex)
-            { }
-
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            
             SetContentView(Resource.Layout.SelectedBooking);
 
             ThisBooking = JsonConvert.DeserializeObject<Booking>(Intent.GetStringExtra("BookingJSON"));
@@ -48,9 +42,6 @@ namespace TestApp.Droid
 
             AddTabToActionBar(Resource.String.booking_information_label, Resource.Drawable.booking);
             AddTabToActionBar(Resource.String.qrcode_label, Resource.Drawable.accountcircle);
-
-            
-
         }
 
         void AddTabToActionBar(int labelResourceId, int iconResourceId)

@@ -20,17 +20,18 @@ CREATE TABLE [dbo].[hotel] (
 );
 
 CREATE TABLE [dbo].[cust_booking] (
-    [booking_id]          INT          IDENTITY (1, 1) NOT NULL,
-    [cust_id]             INT          NOT NULL,
-    [date_booking_made]   DATETIME     NOT NULL,
-    [date_for_booking]    DATE         NOT NULL,
-    [booking_activated]   BIT          DEFAULT ((0)) NOT NULL,
-    [hide_booking]        BIT          DEFAULT ((0)) NOT NULL,
-    [room_ID]             INT          NULL,
-    [booking_finish_date] DATE         NULL,
-    [qrcode_guid]         VARCHAR (36) NULL,
-    PRIMARY KEY CLUSTERED ([booking_id] ASC),
-    FOREIGN KEY ([cust_id]) REFERENCES [dbo].[hot_cust] ([cust_id])
+[booking_id]          INT IDENTITY(1, 1) NOT NULL,
+[cust_id]             INT NOT NULL,
+[date_booking_made] DATETIME NOT NULL,
+[date_for_booking] DATE NOT NULL,
+[booking_activated] BIT DEFAULT((0)) NOT NULL,
+[hide_booking]        BIT DEFAULT((0)) NOT NULL,
+[room_ID]             INT NULL,
+[booking_finish_date] DATE NULL,
+[qrcode_guid]         VARCHAR(36) NULL,
+[booking_completed]   BIT DEFAULT((0)) NOT NULL,
+PRIMARY KEY CLUSTERED([booking_id] ASC),
+FOREIGN KEY([cust_id]) REFERENCES[dbo].[hot_cust] ([cust_id])
 );
 
 CREATE TABLE [dbo].[ROOM] (
@@ -54,10 +55,12 @@ VALUES('Premier Inn', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent', 'THIS I
 INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, hotel_city, hotel_desc)
 VALUES('A Different Premier Inn', 'ST4 2DP', '32 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS ALSO VERY NICE')
 
-INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid)
-VALUES(1, '2019/02/01', '2019/02/02', 0, 0, 1, '2019/02/27', '01d4e959-f983-4e33-a0e8-d753986bda1c')
-INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid)
-VALUES(1, '2019/02/01', '2019/05/21', 0, 0, 2, '2019/02/27', 'deb8ebc8-e251-40ea-bf20-78bf142d1dda')
+INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid, booking_completed)
+VALUES(1, '2019/02/01', '2019/02/02', 1, 0, 1, '2019/02/27', '01d4e959-f983-4e33-a0e8-d753986bda1c', 0)
+INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid, booking_completed)
+VALUES(1, '2019/02/01', '2019/05/21', 0, 0, 2, '2019/02/27', 'deb8ebc8-e251-40ea-bf20-78bf142d1dda', 0)
+INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid, booking_completed)
+VALUES(1, '2019/01/01', '2019/01/11', 0, 0, 2, '2019/02/27', '6820e9da-617d-4382-9208-c3d883a84d8d', 1)
 
 INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (101, 1, 30.5);
 INSERT INTO ROOM(room_number, hotel_ID, price_per_day) VALUES (102, 1, 30.5);

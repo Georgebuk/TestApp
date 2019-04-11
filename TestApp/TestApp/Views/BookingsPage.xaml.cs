@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using HotelClassLibrary;
+using Newtonsoft.Json;
 using System;
+using TestApp.Pages;
 using Xamarin.Forms;
 
 namespace TestApp
@@ -22,17 +24,19 @@ namespace TestApp
             {
                 try
                 {
-                    //Start a new activity natively in Android passing in the selected booking
-                    //The booking info will be used to populate the new activity
-                    DependencyService.Register<IViewBarcodePage>();
-                    string bookingjson = JsonConvert.SerializeObject(e.Item);
-                    DependencyService.Get<IViewBarcodePage>().StartNativeIntentOrActivity(bookingjson);
+                    loadBookingPage((Booking) e.Item);
                 }
                 catch (Exception ex)
                 {
                     string meme = ex.ToString();
                 }
             }
+        }
+
+        private async void loadBookingPage(Booking b)
+        {
+            var selectedBookingPage = new NavigationPage(new SelectedBookingPage(b));
+            await Navigation.PushAsync(selectedBookingPage);
         }
 
         private void BookingsSearch_TextChanged(object sender, TextChangedEventArgs e)

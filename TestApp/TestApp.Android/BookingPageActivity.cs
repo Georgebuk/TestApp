@@ -15,7 +15,7 @@ using Xamarin.Forms;
 [assembly: Xamarin.Forms.Dependency(typeof(BookingPageActivity))]
 namespace TestApp.Droid
 {
-    [Activity(Label = "BookingPageActivity")]
+    [Activity(Label = "BookingPageActivity", Theme = "@style/MainTheme")]
     public class BookingPageActivity : IViewBarcodePage
     {
         public void StartNativeIntentOrActivity(string bookingJSON)

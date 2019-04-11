@@ -25,7 +25,6 @@ namespace TestApp.Droid
     public class QRCodeFragment : Fragment
     {
         Booking booking;
-
         
         public QRCodeFragment(Booking booking)
         {
@@ -34,19 +33,19 @@ namespace TestApp.Droid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            BarcodeWriter writer = new BarcodeWriter()
-            {
-                Format = BarcodeFormat.QR_CODE,
-                Options = new ZXing.Common.EncodingOptions
-                {
-                    Height = 800,
-                    Width = 800
-                }
-            };
-            var result = writer.Write(booking.QrcodeString);
+            //BarcodeWriter writer = new BarcodeWriter()
+            //{
+            //    Format = BarcodeFormat.QR_CODE,
+            //    Options = new ZXing.Common.EncodingOptions
+            //    {
+            //        Height = 800,
+            //        Width = 800
+            //    }
+            //};
+            //var result = writer.Write(booking.QrcodeString);
 
             View view = inflater.Inflate(Resource.Layout.QRCodePageFragment, container, false);
-            view.FindViewById<ImageView>(Resource.Id.imageView2).SetImageBitmap(result);
+            //view.FindViewById<ImageView>(Resource.Id.imageView2).SetImageBitmap(result);
 
             return view;
         }

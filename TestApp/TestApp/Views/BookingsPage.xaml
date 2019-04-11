@@ -29,7 +29,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE" IsVisible="{Binding BookingVisible}">
+                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="{Binding FrameColor}" Opacity="{Binding Opacity}" IsVisible="{Binding BookingVisible}">
                                 <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
                                     <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
                                         <Label Text="{Binding HotelName}"/>

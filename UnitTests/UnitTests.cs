@@ -88,9 +88,9 @@ namespace UnitTests
             var bookings = await BookingRestService.Instance.RefreshDataAsync(TestCustomer.CustId);
             //Check if found booking is equal
 
-            Assert.AreEqual(date, bookings[2].DateBookingMade);
-            Assert.AreEqual(1, bookings[2].Hotel.HotelID);
-            Assert.AreEqual(date.AddDays(5), bookings[2].BookingFinishDate);
+            Assert.AreEqual(date, bookings[3].DateBookingMade);
+            Assert.AreEqual(1, bookings[3].Hotel.HotelID);
+            Assert.AreEqual(date.AddDays(5), bookings[3].BookingFinishDate);
         }
 
         [TestMethod]
