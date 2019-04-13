@@ -1,6 +1,7 @@
 ﻿using HotelClassLibrary;
 using Newtonsoft.Json;
 using System;
+using System.Threading.Tasks;
 using TestApp.Pages;
 using Xamarin.Forms;
 
@@ -24,7 +25,7 @@ namespace TestApp
             {
                 try
                 {
-                    loadBookingPage((Booking) e.Item);
+                    LoadBookingPage((Booking) e.Item);
                 }
                 catch (Exception ex)
                 {
@@ -33,7 +34,7 @@ namespace TestApp
             }
         }
 
-        private async void loadBookingPage(Booking b)
+        private async void LoadBookingPage(Booking b)
         {
             var selectedBookingPage = new NavigationPage(new SelectedBookingPage(b));
             await Navigation.PushAsync(selectedBookingPage);
@@ -41,7 +42,11 @@ namespace TestApp
 
         private void BookingsSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Task.Factory.StartNew(() =>
+            {
+                string filter = bookingsSearch.Text;
+                bm.FilterBookings(filter);
+            });
         }
     }
 }

@@ -7,46 +7,79 @@
              x:Class="TestApp.BookingsPage"
              Title="Your Bookings">
     <StackLayout>
-        <Label Text="You do not have any bookings! Hop on over to the Search for Hotel page and get started!"
-               VerticalTextAlignment="Center"
-               VerticalOptions="FillAndExpand"
-               IsVisible="{Binding HideLabel_IsVisible}"/>
         <SearchBar Placeholder="Search Bookings" 
-                   PlaceholderColor="Gray" 
-                   TextColor="Black"
-                   x:Name="bookingsSearch"
-                   HeightRequest="40"
-                   IsVisible="{Binding Search_IsVisible}"
-                   TextChanged="BookingsSearch_TextChanged"/>
-        <ListView x:Name="BookingListView" 
-                  IsPullToRefreshEnabled="True"
-                  RefreshCommand="{Binding RefreshCommand}"
-                  IsRefreshing="{Binding IsRefreshing}"
-                  HasUnevenRows="True" 
-                  ItemsSource="{Binding Bookings}"
-                  ItemTapped="BookingListView_ItemTapped">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <Frame x:Name="bookingFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="{Binding FrameColor}" Opacity="{Binding Opacity}" IsVisible="{Binding BookingVisible}">
-                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
-                                    <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
-                                        <Label Text="{Binding HotelName}"/>
-                                        <Label Text="{Binding DateOfBookingAsString}"/>
-                                    </StackLayout>
-                                    <BoxView x:Name="seperator"  
-                                    BindingContext="{x:Reference bookingFrame}" 
-                                    WidthRequest="{Binding Width}"
-                                    HeightRequest="0.5"
-                                    Color="#5b5d68"></BoxView>
-                                    <Label x:Name="roomName" Text="{Binding RoomName}"/>
-                                </StackLayout>
-                            </Frame>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                       PlaceholderColor="Gray" 
+                       TextColor="Black"
+                       x:Name="bookingsSearch"
+                       HeightRequest="40"                       
+                       TextChanged="BookingsSearch_TextChanged"/>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout IsVisible="{Binding HideLabel_IsVisible}"
+                       VerticalOptions="Center">
+                <Label Text="You do not have any bookings!" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="Hop on over to the Search for Hotel page and get started!"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"/>
+                <Image Source="frown.png" Opacity="0.2"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding FilterLabel_IsVisible}"
+                       VerticalOptions="Center">
+                <Label Text="Sorry, we couldn't find any bookings with that search term." 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="Please try a different query!"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="Center"/>
+                <Image Source="frown.png" Opacity="0.2"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding Search_IsVisible}">
+                <ListView x:Name="BookingListView" 
+                          IsPullToRefreshEnabled="True"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          HasUnevenRows="True" 
+                          ItemsSource="{Binding Bookings}"
+                          ItemTapped="BookingListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame x:Name="bookingFrame"
+                                           CornerRadius="10" 
+                                           HasShadow="True"
+                                           OutlineColor="Silver" 
+                                           BackgroundColor="{Binding FrameColor}" 
+                                           Opacity="{Binding Opacity}" 
+                                           IsVisible="{Binding BookingVisible}">
+                                        <StackLayout Orientation="Vertical"
+                                                     VerticalOptions="Center" 
+                                                     HorizontalOptions="Center">
+                                            <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
+                                                <Label Text="{Binding HotelName}"/>
+                                                <Label Text="{Binding DateOfBookingAsString}"/>
+                                            </StackLayout>
+                                            <BoxView x:Name="seperator"  
+                                            BindingContext="{x:Reference bookingFrame}" 
+                                            WidthRequest="{Binding Width}"
+                                            HeightRequest="0.5"
+                                            Color="#5b5d68"></BoxView>
+                                            <Label x:Name="roomName" Text="{Binding RoomName}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
