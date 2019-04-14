@@ -13,6 +13,8 @@ namespace TestApp
     {
         private ObservableCollection<Booking> unfilteredCollection = new ObservableCollection<Booking>();
         ObservableCollection<Booking> booking = new ObservableCollection<Booking>();
+        //Binded to the listview, when bookings is set depending on the 
+        //value the UI elements that are visible are set
         public ObservableCollection<Booking> Bookings
         {
             get { return booking; }
@@ -35,7 +37,7 @@ namespace TestApp
                     }
                     else
                     {
-                        Search_IsVisible = false;
+                        Search_IsVisible = true;
                         HideLabel_IsVisible = false;
                         FilterLabel_IsVisible = true;
                     }
@@ -43,7 +45,7 @@ namespace TestApp
                 OnPropertyChanged(nameof(Bookings));
             }
         }
-
+        //Filters the bookings collection based on string typed in search bar
         public void FilterBookings(string filter)
         {
             List<Booking> filteredBookings =
@@ -67,10 +69,12 @@ namespace TestApp
         //When isRefreshing is false the animation stops
         private bool _isRefreshing = false;
 
+        //Parameters that hold if UI elemts are visible
         private bool _hideBooking_IsVisible;
         private bool _search_IsVisible;
         private bool _filterLabel_IsVisible;
 
+        //Returns whether the "no bookings found with search" label is visible
         public bool FilterLabel_IsVisible
         {
             get
@@ -83,7 +87,7 @@ namespace TestApp
                 OnPropertyChanged(nameof(FilterLabel_IsVisible));
             }
         }
-
+        //Returns whether the listview is visible
         public bool Search_IsVisible
         {
             get
@@ -96,7 +100,7 @@ namespace TestApp
                 OnPropertyChanged(nameof(Search_IsVisible));
             }
         }
-
+        //Returns whether the user has no bookings label is visible
         public bool HideLabel_IsVisible
         {
             get
@@ -131,11 +135,11 @@ namespace TestApp
         public BookingViewModel()
         {
             Bookings = new ObservableCollection<Booking>();
-            getBookings();
+            GetBookings();
         }
 
         //Calls the web servive to get a list of all bookings for loggin in customer
-        private async void getBookings()
+        private async void GetBookings()
         {
             try
             {
@@ -163,7 +167,7 @@ namespace TestApp
                 {
                     IsRefreshing = true; //Start refreshing animation
 
-                    getBookings(); //Get bookings for user
+                    GetBookings(); //Get bookings for user
 
                     IsRefreshing = false; //Stop refreshing animation
                 });

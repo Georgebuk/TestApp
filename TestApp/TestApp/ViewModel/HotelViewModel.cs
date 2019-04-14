@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using TestApp.Web_Service;
@@ -12,11 +13,86 @@ namespace TestApp.ViewModel
 {
     public class HotelViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Hotel> Hotels { get; set; }
+        private ObservableCollection<Hotel> unfilteredHotels = new ObservableCollection<Hotel>();
+        private ObservableCollection<Hotel> hotels = new ObservableCollection<Hotel>();
+
+        public ObservableCollection<Hotel> Hotels
+        {
+            get { return hotels; }
+            set
+            {
+                hotels = value;
+                if (value.Count > 0)
+                {
+                    NoHotels_IsVisible = false;
+                    Search_IsVisible = true;
+                    FilterLabel_IsVisible = false;
+                }
+                else
+                {
+                    if (unfilteredHotels.Count == 0)
+                    {
+                        NoHotels_IsVisible = true;
+                        Search_IsVisible = false;
+                        FilterLabel_IsVisible = false;
+                    }
+                    else
+                    {
+                        NoHotels_IsVisible = false;
+                        Search_IsVisible = true;
+                        FilterLabel_IsVisible = true;
+                    }
+                }
+                OnPropertyChanged(nameof(Hotels));
+            }
+        }
 
         //When is refreshing is true the refresh animation continues to trigger
         //When isRefreshing is false the animation stops
         private bool _isRefreshing = false;
+
+        private bool _noHotels_IsVisible;
+        private bool _search_IsVisible;
+        private bool _filterLabel_IsVisible;
+
+        public bool NoHotels_IsVisible
+        {
+            get
+            {
+                return _noHotels_IsVisible;
+            }
+            set
+            {
+                _noHotels_IsVisible = value;
+                OnPropertyChanged(nameof(NoHotels_IsVisible));
+            }
+        }
+
+        public bool Search_IsVisible
+        {
+            get
+            {
+                return _search_IsVisible;
+            }
+            set
+            {
+                _search_IsVisible = value;
+                OnPropertyChanged(nameof(Search_IsVisible));
+            }
+        }
+
+        public bool FilterLabel_IsVisible
+        {
+            get
+            {
+                return _filterLabel_IsVisible;
+            }
+            set
+            {
+                _filterLabel_IsVisible = value;
+                OnPropertyChanged(nameof(FilterLabel_IsVisible));
+            }
+        }
 
         //Notifies the view when a property is updated
         public bool IsRefreshing
@@ -33,25 +109,42 @@ namespace TestApp.ViewModel
 
         public void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            this.PropertyChanged?.Invoke(this, new
+                PropertyChangedEventArgs(propertyName));
         }
 
         public HotelViewModel()
         {
             Hotels = new ObservableCollection<Hotel>();
-            getHotels();
+            GetHotels();
         }
 
-        private async void getHotels()
+        public void FilterHotels(string filter)
+        {
+            List<Hotel> filteredHotels =
+                unfilteredHotels.Where(w => w.City.Contains(filter)
+                || w.HotelName.Contains(filter) 
+                || w.HotelPostcode.Contains(filter)
+                || w.AddressLine1.Contains(filter)
+                || w.AddressLine2.Contains(filter)).ToList();
+            ObservableCollection<Hotel> hotelF = new ObservableCollection<Hotel>();
+            foreach (Hotel h in filteredHotels)
+                hotelF.Add(h);
+
+            Hotels = hotelF;
+        }
+
+        private async void GetHotels()
         {
             HotelRestService service = HotelRestService.Instance;
             Hotels.Clear();
             var hotels = await service.RefreshDataAsync();
+            ObservableCollection<Hotel> hts = new ObservableCollection<Hotel>();
+
             foreach (Hotel h in hotels)
-                Hotels.Add(h);
+                hts.Add(h);
+            unfilteredHotels = hts;
+            Hotels = hts;
         }
 
         //Command to bind refreshing behaviour from view to view model
@@ -63,7 +156,7 @@ namespace TestApp.ViewModel
                 {
                     IsRefreshing = true; //Start refreshing animation
 
-                    getHotels(); //Get bookings for user
+                    GetHotels(); //Get bookings for user
 
                     IsRefreshing = false; //Stop refreshing animation
                 });

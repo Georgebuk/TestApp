@@ -12,7 +12,8 @@
                        TextColor="Black"
                        x:Name="bookingsSearch"
                        HeightRequest="40"                       
-                       TextChanged="BookingsSearch_TextChanged"/>
+                       TextChanged="BookingsSearch_TextChanged"
+                   IsVisible="{Binding Search_IsVisible}"/>
         <StackLayout VerticalOptions="CenterAndExpand">
             <StackLayout IsVisible="{Binding HideLabel_IsVisible}"
                        VerticalOptions="Center">

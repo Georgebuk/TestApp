@@ -32,5 +32,14 @@ namespace TestApp.Pages
             var SelectedHotelPage = new NavigationPage(new SelectedHotelPage(h));
             await Navigation.PushAsync(SelectedHotelPage);
         }
+
+        private void HotelsSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                string filter = hotelsSearch.Text;
+                hm.FilterHotels(filter);
+            });
+        }
     }
 }
