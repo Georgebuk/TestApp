@@ -24,7 +24,7 @@ namespace TestApp
             //um = new UserViewModel();
             //BindingContext = um;
 
-			accountLabel.Text =  "Logged in with" + Globals.loggedInCustomer.Email;
+			//accountLabel.Text =  "Logged in with" + Globals.loggedInCustomer.Email;
 
 			//var tapGestureRecognister = new TapGestureRecognizer();
 			//tapGestureRecognister.Tapped += (s, e) =>
@@ -40,7 +40,7 @@ namespace TestApp
             if (Globals.loggedInCustomer != null)
             {
                 Globals.loggedInCustomer = null;
-                Application.Current.MainPage = new NewMainPage();
+                Application.Current.MainPage = new LoginRegisterTabbedPage();
             }
 
         }

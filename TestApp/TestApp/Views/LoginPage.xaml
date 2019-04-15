@@ -4,32 +4,40 @@
              x:Class="TestApp.Views.LoginPage"
              Title="Login">
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
-            <Entry Placeholder="Email" x:Name="EntryEmail"></Entry>
-            <Entry Placeholder="Password" x:Name ="EntryPassword" IsPassword="True"></Entry>
-            <Button Text="Log In" TextColor="White" BackgroundColor="#2196F3" Clicked="LoginButton_Clicked"></Button>
-            <ActivityIndicator x:Name="loadingActivity"
-                               IsVisible="False"
-                               IsRunning="False"/>
-            <Label x:Name="errorLabelNoUser" 
-                   TextColor="Red"
-                   IsVisible="False">
-                <Label.Text>
-                    No user found with the specified email or password. Please try again
-                </Label.Text>
-            </Label>
-            <Label x:Name="errorLabelNoConnection" 
-                TextColor="Red" 
-                IsVisible="False">
-                <Label.Text>
-                    Sorry we couldn't contact our server. Please try again later
-                </Label.Text>
-            </Label>
-            <Label x:Name="errorLabelNoEntry" 
-                   Text="Please enter an email address and password" 
-                   TextColor="Red" 
-                   IsVisible="False"
-                   HorizontalTextAlignment="Center"/>
+        <StackLayout VerticalOptions="Center">
+            <StackLayout Spacing="20" Padding="50">
+                <Entry Placeholder="Email" x:Name="EntryEmail"></Entry>
+                <Entry Placeholder="Password" x:Name ="EntryPassword" IsPassword="True"></Entry>
+                <Button x:Name="LoginButton"
+                        Text="Log In" 
+                        TextColor="White" 
+                        BackgroundColor="#2196F3"
+                        Clicked="LoginButton_Clicked"
+                        IsVisible="True"></Button>
+                <ActivityIndicator x:Name="loadingActivity"
+                                   IsVisible="False"
+                                   IsRunning="False"/>
+                <Label x:Name="errorLabelNoUser" 
+                       TextColor="Red"
+                       IsVisible="False">
+                    <Label.Text>
+                        No user found with the specified email or password. Please try again
+                    </Label.Text>
+                </Label>
+                <Label x:Name="errorLabelNoConnection"
+                    TextColor="Red" 
+                    IsVisible="False">
+                    <Label.Text>
+                        Sorry we couldn't contact our server. Please try again later
+                    </Label.Text>
+                </Label>
+                <Label x:Name="errorLabelNoEntry" 
+                       Text="Please enter an email address and password" 
+                       TextColor="Red" 
+                       IsVisible="False"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

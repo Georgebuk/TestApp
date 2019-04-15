@@ -146,6 +146,9 @@ namespace TestApp
                 BookingRestService service = BookingRestService.Instance;
                 Bookings.Clear();
                 var bookings = await service.RefreshDataAsync(Globals.loggedInCustomer.CustId);
+
+                //Order by date
+                bookings = bookings.OrderByDescending(o => o.DateOfBooking).ToList();
                 ObservableCollection<Booking> book = new ObservableCollection<Booking>();
                 foreach (Booking b in bookings)
                     book.Add(b);

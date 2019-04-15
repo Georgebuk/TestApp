@@ -24,6 +24,7 @@ namespace TestApp.Views
             //Notify the user that the application is loading something
             loadingActivity.IsVisible = true;
             loadingActivity.IsRunning = true;
+            LoginButton.IsVisible = false;
 
             //Reset error labels
             errorLabelNoConnection.IsVisible = false;
@@ -52,7 +53,7 @@ namespace TestApp.Views
                     //Set the logged in user
                     Globals.loggedInCustomer = c;
                     //Redirect to a new main page to re-populate side menu
-                    Application.Current.MainPage = new NewMainPage();
+                    Application.Current.MainPage = new BottomTabsPage();
                 }
                 else
                 {
@@ -64,6 +65,7 @@ namespace TestApp.Views
             //Disable loading notification
             loadingActivity.IsVisible = false;
             loadingActivity.IsRunning = false;
+            LoginButton.IsVisible = true;
         }
 
     }

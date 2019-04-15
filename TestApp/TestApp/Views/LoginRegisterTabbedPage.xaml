@@ -1,0 +1,19 @@
+﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="TestApp.LoginRegisterTabbedPage"
+            xmlns:local="clr-namespace:TestApp.Views"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+    <NavigationPage Title="Login"
+                 Icon="password.png">
+        <x:Arguments>
+            <local:LoginPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Register" 
+                 Icon="register.png">
+        <x:Arguments>
+            <local:RegistrationPage/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

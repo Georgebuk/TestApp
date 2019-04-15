@@ -9,7 +9,7 @@ using TestApp.Web_Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestApp.Pages
+namespace TestApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HotelPage : ContentPage

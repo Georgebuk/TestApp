@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="TestApp.BottomTabsPage"
+            xmlns:local="clr-namespace:TestApp"
+            android:TabbedPage.ToolbarPlacement="Bottom">
+    <!--Pages can be added as references or inline-->
+    <NavigationPage Title="Search"
+                 Icon="searchicon.png">
+        <x:Arguments>
+            <local:HotelPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Bookings" 
+                 Icon="hotelbooking.png">
+        <x:Arguments>
+            <local:BookingsPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Account" 
+                 Icon="accountcirclenopadding.png">
+        <x:Arguments>
+            <local:AccountSettings/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

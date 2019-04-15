@@ -48,13 +48,15 @@
                           IsRefreshing="{Binding IsRefreshing}"
                           HasUnevenRows="True" 
                           ItemsSource="{Binding Bookings}"
-                          ItemTapped="BookingListView_ItemTapped">
+                          ItemTapped="BookingListView_ItemTapped"
+                          SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
                                     <Frame x:Name="bookingFrame"
-                                           CornerRadius="10" 
+                                           CornerRadius="10"
+                                           Margin="20,10,20,15"
                                            HasShadow="True"
                                            OutlineColor="Silver" 
                                            BackgroundColor="{Binding FrameColor}" 
