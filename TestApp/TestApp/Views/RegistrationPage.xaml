@@ -2,18 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.Views.RegistrationPage"
-             Title="Register Account">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
-                <Entry Placeholder="Email" x:Name="EntryEmail"></Entry>
-                <Entry Placeholder="Password" x:Name ="EntryPassword" IsPassword="True"></Entry>
-                <Entry Placeholder="First Name" x:Name="EntryFName"></Entry>
-                <Entry Placeholder="Last Name" x:Name="EntrySName"></Entry>
-                <Entry Placeholder="Phonenumber" x:Name="EntryPhonenumber" Keyboard="Numeric"></Entry>
-                <DatePicker x:Name="dateOfBirthPicker" DateSelected="DateOfBirthPicker_DateSelected" MaximumDate="{Binding MaximumDate}"/>
-                <Button Text="Register" TextColor="White" BackgroundColor="Black" Clicked="Button_Clicked"></Button>
-                <Label x:Name="responseLabel" Text="" TextColor="Red" IsVisible="False"></Label>
+            <StackLayout>
+                <Image Source="hotelgo.png"
+                       Margin="0, 20, 0,0"/>
+                <StackLayout Spacing="20" Margin="10, 5, 10, 0" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+                        <Entry Placeholder="First Name" WidthRequest="130" x:Name="EntryFName"/>
+                        <Entry Placeholder="Last Name" WidthRequest="130" x:Name="EntrySName"/>
+                    </StackLayout>
+                    <Entry Placeholder="Email" x:Name="EntryEmail"/>
+                    <Entry Placeholder="Password" x:Name ="EntryPassword" IsPassword="True"/>
+                    <Entry Placeholder="Phonenumber" x:Name="EntryPhonenumber" Keyboard="Numeric"/>
+                    <Label Text="Date Of Birth"/>
+                    <DatePicker x:Name="dateOfBirthPicker" DateSelected="DateOfBirthPicker_DateSelected" MaximumDate="{Binding MaximumDate}"/>
+                    <Button x:Name="RegisterButton" Text="Register" TextColor="White" BackgroundColor="#2DC7A8" Clicked="Button_Clicked"/>
+                    <ActivityIndicator x:Name="loadingActivity"
+                                           IsVisible="False"
+                                           IsRunning="False"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="End">
+                    <Label x:Name="responseLabel" Text="" TextColor="Red" IsVisible="False" VerticalOptions="End"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

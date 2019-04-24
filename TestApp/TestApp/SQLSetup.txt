@@ -50,10 +50,10 @@ INSERT INTO hot_cust(cust_first_name, cust_last_name, cust_email, cust_phonenumb
 VALUES ('Johnathon', 'Smith', 'john.smith@jsmith.com', '07411762329', '1995/01/14', 'uXh1PNcPW1ucWC8sehgDaG/haGkrA3DeUnx6xLYDCzhZDwGL')
 
 INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, hotel_city, hotel_desc)
-VALUES('Premier Inn', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS VERY NICE')
+VALUES('A Hotel', 'ST4 2DU', '30 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS VERY NICE')
 
 INSERT INTO hotel(hotel_name, hotel_postcode, hotel_address1, hotel_address2, hotel_city, hotel_desc)
-VALUES('A Different Premier Inn', 'ST4 2DP', '32 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS ALSO VERY NICE')
+VALUES('A Different Hotel', 'ST4 2DP', '32 Avenue Road', '', 'Stoke-on-Trent', 'THIS IS A HOTEL IT IS ALSO VERY NICE')
 
 INSERT INTO cust_booking(cust_id, date_booking_made, date_for_booking, booking_activated, hide_booking, room_ID, booking_finish_date, qrcode_guid, booking_completed)
 VALUES(1, '2019/02/01', '2019/02/02', 1, 0, 1, '2019/02/27', '01d4e959-f983-4e33-a0e8-d753986bda1c', 0)

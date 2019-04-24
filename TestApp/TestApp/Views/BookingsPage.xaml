@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:TestApp"
              xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              x:Class="TestApp.BookingsPage"
-             Title="Your Bookings">
+             NavigationPage.HasNavigationBar="False">
     <StackLayout>
         <SearchBar Placeholder="Search Bookings" 
                        PlaceholderColor="Gray" 
@@ -41,48 +41,58 @@
                 <Image Source="frown.png" Opacity="0.2"
                        VerticalOptions="Center"/>
             </StackLayout>
-            <StackLayout IsVisible="{Binding Search_IsVisible}">
-                <ListView x:Name="BookingListView" 
+            <ListView x:Name="BookingListView" 
                           IsPullToRefreshEnabled="True"
                           RefreshCommand="{Binding RefreshCommand}"
                           IsRefreshing="{Binding IsRefreshing}"
                           HasUnevenRows="True" 
                           ItemsSource="{Binding Bookings}"
                           ItemTapped="BookingListView_ItemTapped"
-                          SeparatorVisibility="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <Frame x:Name="bookingFrame"
+                          SeparatorVisibility="None"
+                          BackgroundColor="#2DC7A8">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame x:Name="bookingFrame"
                                            CornerRadius="10"
                                            Margin="20,10,20,15"
                                            HasShadow="True"
                                            OutlineColor="Silver" 
-                                           BackgroundColor="{Binding FrameColor}" 
+                                           BackgroundColor="White" 
                                            Opacity="{Binding Opacity}" 
                                            IsVisible="{Binding BookingVisible}">
+                                    <StackLayout>
+                                        <StackLayout BackgroundColor="{Binding ActivationColor}">
+                                            <Label FontAttributes="Bold" 
+                                                       TextDecorations="Underline"
+                                                       Text="{Binding ActivationLabel}"
+                                                       HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
                                         <StackLayout Orientation="Vertical"
-                                                     VerticalOptions="Center" 
-                                                     HorizontalOptions="Center">
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center">
                                             <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
                                                 <Label Text="{Binding HotelName}"/>
-                                                <Label Text="{Binding DateOfBookingAsString}"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="bookingdate.png"/>
+                                                    <Label Text="{Binding DateOfBookingAsString}"/>
+                                                </StackLayout>
                                             </StackLayout>
                                             <BoxView x:Name="seperator"  
-                                            BindingContext="{x:Reference bookingFrame}" 
-                                            WidthRequest="{Binding Width}"
-                                            HeightRequest="0.5"
-                                            Color="#5b5d68"></BoxView>
-                                            <Label x:Name="roomName" Text="{Binding RoomName}"/>
+                                                BindingContext="{x:Reference bookingFrame}" 
+                                                WidthRequest="{Binding Width}"
+                                                HeightRequest="0.5"
+                                                Color="#5b5d68"></BoxView>
+                                            <Label FontAttributes="Bold" TextDecorations="Underline" x:Name="roomName" Text="{Binding RoomName}"/>
                                         </StackLayout>
-                                    </Frame>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </StackLayout>
 </ContentPage>

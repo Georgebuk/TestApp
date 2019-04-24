@@ -23,9 +23,12 @@ namespace TestApp
         {
             if (e.Item != null)
             {
+                Booking b = (Booking) e.Item;
                 try
                 {
-                    LoadBookingPage((Booking) e.Item);
+                    //If the booking has expired do not allow to the user to open the booking
+                    if(!b.Completed)
+                        LoadBookingPage(b);
                 }
                 catch (Exception ex)
                 {

@@ -24,7 +24,7 @@ namespace TestApp
             };
             Globals.loggedInCustomer = c;
 
-            if(Globals.loggedInCustomer != null)
+            if (Globals.loggedInCustomer != null)
                 MainPage = new BottomTabsPage();
             else
             {

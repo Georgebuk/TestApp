@@ -59,10 +59,10 @@ namespace UnitTests
             var bookings = await BookingRestService.Instance.RefreshDataAsync(TestCustomer.CustId);
             Booking booking1 = bookings[0];
             Assert.AreEqual(1, booking1.BookedRoom.RoomID);
-            Assert.AreEqual("Premier Inn", booking1.Hotel.HotelName);
+            Assert.AreEqual("Hotel", booking1.Hotel.HotelName);
             Booking booking2 = bookings[1];
             Assert.AreEqual(2, booking2.BookedRoom.RoomID);
-            Assert.AreEqual("Premier Inn", booking2.Hotel.HotelName);
+            Assert.AreEqual("Hotel", booking2.Hotel.HotelName);
         }
 
         [TestMethod]

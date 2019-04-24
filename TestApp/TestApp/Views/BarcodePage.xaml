@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             x:Class="TestApp.Views.BarcodePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout x:Name="meme">
+            <zx:ZXingBarcodeImageView
+                x:Name="QRImageView"
+                BarcodeFormat="QR_CODE"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <zx:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Width="300" Height="300"></zxcm:EncodingOptions>
+                </zx:ZXingBarcodeImageView.BarcodeOptions>
+            </zx:ZXingBarcodeImageView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -27,8 +27,6 @@ namespace TestApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
             
             SetContentView(Resource.Layout.SelectedBooking);
 

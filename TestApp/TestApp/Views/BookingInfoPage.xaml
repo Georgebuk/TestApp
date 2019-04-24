@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.Views.BookingInfoPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalOptions="CenterAndExpand"
+                   Text="You will be staying in room:"
+                   Margin="0, 20, 0, 0"
+                   FontSize="28"
+                   TextColor="Black"/>
+            <Label VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Text="{Binding BookedRoom.RoomNumber}" 
+                   FontSize="119"
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"
+                   TextColor="Black"/>
+            <StackLayout VerticalOptions="End"
+                         HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Your booking will be valid from:"
+                           FontSize="16"/>
+                    <Label Text="{Binding DateOfBookingAsString}" 
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontSize="16"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,40">
+                    <Label Text="and until:"
+                           FontSize="16"/>
+                    <Label Text="{Binding BookingFinishDateString}" 
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿using HotelClassLibrary;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace TestApp.Views
+{
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class BarcodePage : ContentPage
+	{
+		public BarcodePage (Booking booking)
+		{
+            try
+            {
+                InitializeComponent();
+                QRImageView.BarcodeValue = booking.QrcodeString;
+            }
+            catch (Exception ex)
+            {
+                string s = ex.ToString();
+            }
+		}
+	}
+}

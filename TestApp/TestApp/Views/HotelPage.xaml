@@ -16,10 +16,6 @@
                            HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center"
                            VerticalOptions="CenterAndExpand"/>
-                <Label Text="Hop on over to the Search for Hotel page and get started!"
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
-                           VerticalOptions="Center"/>
                 <Image Source="noconnectionfrown.png" Opacity="0.2"
                            VerticalOptions="Center"/>
             </StackLayout>
@@ -36,32 +32,46 @@
                 <Image Source="frown.png" Opacity="0.2"
                        VerticalOptions="Center"/>
             </StackLayout>
-            <ListView x:Name="HotelListView" 
-                          IsPullToRefreshEnabled="True"
-                          RefreshCommand="{Binding RefreshCommand}"
-                          IsRefreshing="{Binding IsRefreshing}"
-                          HasUnevenRows="True" 
-                          ItemsSource="{Binding Hotels}"
-                          ItemTapped="HotelListView_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <Frame x:Name="hotelFrame" CornerRadius="10" HasShadow="True" OutlineColor="Silver" BackgroundColor="#DEDEDE" >
-                                    <StackLayout Orientation="Vertical" Margin="0, 0, 0, 10">
-                                        <Image x:Name="hotelImage" 
-                                               BindingContext="{x:Reference hotelFrame}" 
-                                               WidthRequest="{Binding Width}" 
-                                               Source="{Binding ImageURL}"/>
-                                        <Label x:Name="hotelName" Text="{Binding HotelName}"/>
-                                        <Label x:Name="hotelCity" Text="{Binding City}"/>
-                                    </StackLayout>
-                                </Frame>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout IsVisible="{Binding Search_IsVisible}">
+                <ListView x:Name="HotelListView" 
+                            IsPullToRefreshEnabled="True"
+                            RefreshCommand="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            HasUnevenRows="True" 
+                            ItemsSource="{Binding Hotels}"
+                            ItemTapped="HotelListView_ItemTapped"
+                            SeparatorVisibility="None"
+                            BackgroundColor="#2DC7A8">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame x:Name="hotelFrame"
+                                           CornerRadius="10"
+                                           Margin="20,10,20,15"
+                                           HasShadow="True" 
+                                           OutlineColor="Silver" 
+                                           BackgroundColor="White" >
+                                        <StackLayout Orientation="Vertical"
+                                                     Margin="0, 0, 0, 10">
+                                            <Image x:Name="hotelImage" 
+                                                   BindingContext="{x:Reference hotelFrame}" 
+                                                   WidthRequest="{Binding Width}" 
+                                                   Source="{Binding ImageURL}"/>
+                                            <Label x:Name="hotelName" 
+                                                   Text="{Binding HotelName}"
+                                                   HorizontalTextAlignment="Center"/>
+                                            <Label x:Name="hotelCity" 
+                                                   Text="{Binding City}"
+                                                   HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </StackLayout>
 </ContentPage>

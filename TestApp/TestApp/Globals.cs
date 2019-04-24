@@ -27,6 +27,6 @@ namespace TestApp
                     Application.Current.Properties["loggedInCustomer"] = JsonConvert.SerializeObject(value);
             }
         }
-        public static string WEBAPIURI = "http://192.168.0.24:45455/api/";
+        public static string WEBAPIURI = "http://192.168.0.24:57162/api/";
     }
 }
