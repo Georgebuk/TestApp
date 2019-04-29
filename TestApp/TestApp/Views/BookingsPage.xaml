@@ -12,8 +12,7 @@
                        TextColor="Black"
                        x:Name="bookingsSearch"
                        HeightRequest="40"                       
-                       TextChanged="BookingsSearch_TextChanged"
-                   IsVisible="{Binding Search_IsVisible}"/>
+                       TextChanged="BookingsSearch_TextChanged"/>
         <StackLayout VerticalOptions="CenterAndExpand">
             <StackLayout IsVisible="{Binding HideLabel_IsVisible}"
                        VerticalOptions="Center">
@@ -49,7 +48,8 @@
                           ItemsSource="{Binding Bookings}"
                           ItemTapped="BookingListView_ItemTapped"
                           SeparatorVisibility="None"
-                          BackgroundColor="#2DC7A8">
+                          BackgroundColor="#2DC7A8"
+                      IsVisible="{Binding Search_IsVisible}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
