@@ -46,10 +46,10 @@ namespace UnitTests
             Assert.AreEqual(2, hotels.Count);
             Hotel hotel1 = hotels[0];
             Assert.AreEqual(1, hotel1.HotelID);
-            Assert.AreEqual("Premier Inn", hotel1.HotelName);
+            Assert.AreEqual("Hotel", hotel1.HotelName);
             Hotel hotel2 = hotels[1];
             Assert.AreEqual(2, hotel2.HotelID);
-            Assert.AreEqual("A Different Premier Inn", hotel2.HotelName);
+            Assert.AreEqual("A Different Hotel", hotel2.HotelName);
         }
 
         [TestMethod]

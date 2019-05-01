@@ -27,8 +27,10 @@ namespace TestApp.Web_Service
 
         private HotelRestService()
         {
-            Client = new HttpClient();
-            Client.MaxResponseContentBufferSize = 256000;
+            Client = new HttpClient
+            {
+                MaxResponseContentBufferSize = 256000
+            };
         }
 
         public async Task<List<Hotel>> RefreshDataAsync()

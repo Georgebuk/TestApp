@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.Android", "TestApp\TestApp.Android\TestApp.Android.csproj", "{758A90A1-5B5A-4ED5-AF85-16AA04775035}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelGo.Android", "TestApp\TestApp.Android\HotelGo.Android.csproj", "{758A90A1-5B5A-4ED5-AF85-16AA04775035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.iOS", "TestApp\TestApp.iOS\TestApp.iOS.csproj", "{856F60B8-BAC1-47B0-87B9-30CD76647E55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelGo.iOS", "TestApp\TestApp.iOS\HotelGo.iOS.csproj", "{856F60B8-BAC1-47B0-87B9-30CD76647E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.UWP", "TestApp\TestApp.UWP\TestApp.UWP.csproj", "{9165158D-C76F-46CC-A6E2-C0FD5F369BC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelGo.UWP", "TestApp\TestApp.UWP\HotelGo.UWP.csproj", "{9165158D-C76F-46CC-A6E2-C0FD5F369BC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp\TestApp.csproj", "{33B44067-3016-434A-9FAF-FA53759F5B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelGo", "TestApp\TestApp\HotelGo.csproj", "{33B44067-3016-434A-9FAF-FA53759F5B76}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelClassLibrary", "..\HotelClassLibrary\HotelClassLibrary\HotelClassLibrary.csproj", "{7EC8223D-F8BE-41D1-B274-35441A08270D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CCD9B470-196F-40E8-8488-F1F4B19549D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CCD9B470-196F-40E8-8488-F1F4B19549D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
