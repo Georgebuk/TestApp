@@ -21,18 +21,7 @@ namespace TestApp
 		{
 			InitializeComponent ();
 
-            //um = new UserViewModel();
-            //BindingContext = um;
-
-			//accountLabel.Text =  "Logged in with" + Globals.loggedInCustomer.Email;
-
-			//var tapGestureRecognister = new TapGestureRecognizer();
-			//tapGestureRecognister.Tapped += (s, e) =>
-			//{
-			//	//Simulated logging out, will change when accounts are implemented
-			//	DisplayAlert("Alert","logged out", "OK");
-			//};
-			//notYouLabel.GestureRecognizers.Add(tapGestureRecognister);
+			accountLabel.Text =  "Logged in as: " + Globals.loggedInCustomer.Email;
 		}
 
         private async void LogoutButton_Clicked(object sender, EventArgs e)

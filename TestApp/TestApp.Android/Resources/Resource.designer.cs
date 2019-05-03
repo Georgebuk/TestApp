@@ -5231,8 +5231,8 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a008f
 			public const int container = 2131361935;
 			
-			// aapt resource value: 0x7f0a00d6
-			public const int contentFrame = 2131362006;
+			// aapt resource value: 0x7f0a00d4
+			public const int contentFrame = 2131362004;
 			
 			// aapt resource value: 0x7f0a0066
 			public const int contentPanel = 2131361894;
@@ -5315,9 +5315,6 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a0058
 			public const int forever = 2131361880;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int frameLayout1 = 2131361999;
-			
 			// aapt resource value: 0x7f0a000a
 			public const int ghost_view = 2131361802;
 			
@@ -5338,9 +5335,6 @@ namespace HotelGo.Droid
 			
 			// aapt resource value: 0x7f0a005f
 			public const int image = 2131361887;
-			
-			// aapt resource value: 0x7f0a00ca
-			public const int imageView2 = 2131361994;
 			
 			// aapt resource value: 0x7f0a00c4
 			public const int info = 2131361988;
@@ -5369,26 +5363,26 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a0061
 			public const int list_item = 2131361889;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int main_appbar = 2131361995;
-			
-			// aapt resource value: 0x7f0a00ce
-			public const int main_scrollview = 2131361998;
+			// aapt resource value: 0x7f0a00ca
+			public const int main_appbar = 2131361994;
 			
 			// aapt resource value: 0x7f0a00cd
-			public const int main_tablayout = 2131361997;
+			public const int main_scrollview = 2131361997;
 			
 			// aapt resource value: 0x7f0a00cc
-			public const int main_toolbar = 2131361996;
+			public const int main_tablayout = 2131361996;
 			
-			// aapt resource value: 0x7f0a00d8
-			public const int masked = 2131362008;
+			// aapt resource value: 0x7f0a00cb
+			public const int main_toolbar = 2131361995;
+			
+			// aapt resource value: 0x7f0a00d6
+			public const int masked = 2131362006;
 			
 			// aapt resource value: 0x7f0a00bd
 			public const int media_actions = 2131361981;
 			
-			// aapt resource value: 0x7f0a00d5
-			public const int message = 2131362005;
+			// aapt resource value: 0x7f0a00d3
+			public const int message = 2131362003;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int middle = 2131361841;
@@ -5585,14 +5579,14 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a008a
 			public const int select_dialog_listview = 2131361930;
 			
+			// aapt resource value: 0x7f0a00ce
+			public const int shellcontent_appbar = 2131361998;
+			
 			// aapt resource value: 0x7f0a00d0
-			public const int shellcontent_appbar = 2131362000;
+			public const int shellcontent_scrollview = 2131362000;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int shellcontent_scrollview = 2131362002;
-			
-			// aapt resource value: 0x7f0a00d1
-			public const int shellcontent_toolbar = 2131362001;
+			// aapt resource value: 0x7f0a00cf
+			public const int shellcontent_toolbar = 2131361999;
 			
 			// aapt resource value: 0x7f0a0074
 			public const int shortcut = 2131361908;
@@ -5606,8 +5600,8 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a0025
 			public const int showTitle = 2131361829;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int sliding_tabs = 2131362003;
+			// aapt resource value: 0x7f0a00d1
+			public const int sliding_tabs = 2131362001;
 			
 			// aapt resource value: 0x7f0a008d
 			public const int smallLabel = 2131361933;
@@ -5687,8 +5681,8 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a006f
 			public const int title_template = 2131361903;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int toolbar = 2131362004;
+			// aapt resource value: 0x7f0a00d2
+			public const int toolbar = 2131362002;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int top = 2131361854;
@@ -5726,8 +5720,8 @@ namespace HotelGo.Droid
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00d7
-			public const int visible = 2131362007;
+			// aapt resource value: 0x7f0a00d5
+			public const int visible = 2131362005;
 			
 			// aapt resource value: 0x7f0a00af
 			public const int volume_item_container = 2131361967;
@@ -6012,43 +6006,37 @@ namespace HotelGo.Droid
 			public const int notification_template_part_time = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int QRCodePageFragment = 2130968639;
+			public const int RootLayout = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int RootLayout = 2130968640;
+			public const int select_dialog_item_material = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int select_dialog_item_material = 2130968641;
+			public const int select_dialog_multichoice_material = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int select_dialog_multichoice_material = 2130968642;
+			public const int select_dialog_singlechoice_material = 2130968642;
 			
 			// aapt resource value: 0x7f040043
-			public const int select_dialog_singlechoice_material = 2130968643;
+			public const int ShellContent = 2130968643;
 			
 			// aapt resource value: 0x7f040044
-			public const int SelectedBooking = 2130968644;
+			public const int support_simple_spinner_dropdown_item = 2130968644;
 			
 			// aapt resource value: 0x7f040045
-			public const int ShellContent = 2130968645;
+			public const int Tabbar = 2130968645;
 			
 			// aapt resource value: 0x7f040046
-			public const int support_simple_spinner_dropdown_item = 2130968646;
+			public const int Toolbar = 2130968646;
 			
 			// aapt resource value: 0x7f040047
-			public const int Tabbar = 2130968647;
+			public const int tooltip = 2130968647;
 			
 			// aapt resource value: 0x7f040048
-			public const int Toolbar = 2130968648;
+			public const int zxingscanneractivitylayout = 2130968648;
 			
 			// aapt resource value: 0x7f040049
-			public const int tooltip = 2130968649;
-			
-			// aapt resource value: 0x7f04004a
-			public const int zxingscanneractivitylayout = 2130968650;
-			
-			// aapt resource value: 0x7f04004b
-			public const int zxingscannerfragmentlayout = 2130968651;
+			public const int zxingscannerfragmentlayout = 2130968649;
 			
 			static Layout()
 			{
