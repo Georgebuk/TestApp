@@ -17,7 +17,7 @@
                    FontAttributes="Bold"
                    TextDecorations="Underline"
                    TextColor="Black"/>
-            <StackLayout VerticalOptions="End"
+            <StackLayout VerticalOptions="EndAndExpand"
                          HorizontalOptions="CenterAndExpand">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Your booking will be valid from:"
@@ -36,6 +36,16 @@
                            TextColor="Black"
                            FontSize="16"/>
                 </StackLayout>
+                <Button Text="Checkout Early"
+                        x:Name="CheckoutButton"
+                        Clicked="CheckoutButton_Clicked"/>
+                <ActivityIndicator x:Name="loadingActivity"
+                                       IsVisible="False"
+                                       IsRunning="False"/>
+                <Label Text="Successfully checked out"
+                       TextColor="Green"
+                       IsVisible="False"
+                       x:Name="SuccessLabel"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

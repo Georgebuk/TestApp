@@ -5,15 +5,60 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="hotelImage"/>
-            <Label x:Name="hotelName"/>
-            <Label x:Name="hotelDesc"/>
-            <Label x:Name="hotelNumberRooms"/>
-            <DatePicker x:Name="bookingStartDatePicker" DateSelected="BookingStartDatePicker_DateSelected"/>
-            <Picker x:Name="daysPicker" SelectedIndexChanged="DaysPicker_SelectedIndexChanged"/>
-            <Label x:Name="AvailableLabel"/>
-            <Button x:Name="bookButton" Clicked="BookButton_Clicked"/>
-            <Label x:Name="responseLabel" IsVisible="False"/>
+            <StackLayout VerticalOptions="StartAndExpand"
+                         Margin="0,20,0,0"
+                         Padding="0, 10, 0, 0">
+                <Label x:Name="hotelName" 
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       FontSize="22"
+                       TextColor="Black"/>
+                <Frame BorderColor="Black"
+                       Margin="10,10,10,10">
+                    <Label x:Name="hotelDesc"
+                           FontSize="18"
+                           TextColor="Black"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Date you will be staying:" 
+                       TextColor="Black"/>
+                <DatePicker x:Name="bookingStartDatePicker" 
+                            DateSelected="BookingStartDatePicker_DateSelected"
+                            Margin="0,0,0,10"/>
+                <Label Text="Number of days you are staying:" 
+                       TextColor="Black"/>
+                <Picker x:Name="daysPicker" 
+                        SelectedIndexChanged="DaysPicker_SelectedIndexChanged"/>
+                <ActivityIndicator x:Name="roomCheckActivity"
+                                    IsVisible="False"
+                                    IsRunning="False"/>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             Orientation="Horizontal">
+                    <Label x:Name="AvailableLabel" 
+                           FontSize="20"/>
+                    <Image x:Name="AvailableIcon" 
+                           Source="thumbsup_green.png"
+                           IsVisible="False"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Label x:Name="responseLabel" IsVisible="False" FontSize="20"
+                       Text="Error occured when creating booking. Please try again"
+                       TextColor="Red"/>
+                <Button x:Name="bookButton" 
+                        Clicked="BookButton_Clicked"
+                        BackgroundColor="#2DC7A8"
+                        Margin="20,0,20,20"/>
+                <ActivityIndicator x:Name="loadingActivity"
+                                    IsVisible="False"
+                                    IsRunning="False"
+                                   Margin="0,0,0,20"/>
+                <Label x:Name="SuccessLabel" IsVisible="False"
+                       Text="Success" TextColor="Green" FontSize="20"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="20,0,20,20"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

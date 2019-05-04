@@ -13,6 +13,8 @@ namespace TestApp
     {
         private ObservableCollection<Booking> unfilteredCollection = new ObservableCollection<Booking>();
         ObservableCollection<Booking> booking = new ObservableCollection<Booking>();
+
+        private static BookingViewModel _instance;
         //Binded to the listview, when bookings is set depending on the 
         //value the UI elements that are visible are set
         public ObservableCollection<Booking> Bookings
@@ -132,7 +134,17 @@ namespace TestApp
                 PropertyChangedEventArgs(propertyName));
         }
 
-        public BookingViewModel()
+        public static BookingViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new BookingViewModel();
+                return _instance;
+            }
+        }
+
+        private BookingViewModel()
         {
             Bookings = new ObservableCollection<Booking>();
             GetBookings();
@@ -175,6 +187,11 @@ namespace TestApp
                     IsRefreshing = false; //Stop refreshing animation
                 });
             }
+        }
+
+        public void RefreshBookings()
+        {
+            GetBookings();
         }
 
         public void updateBookings(string filter)

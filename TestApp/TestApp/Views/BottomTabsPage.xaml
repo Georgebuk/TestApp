@@ -13,7 +13,7 @@
         </x:Arguments>
     </NavigationPage>
     <NavigationPage Title="Bookings" 
-                 Icon="hotelbooking.png">
+                 Icon="bed.png">
         <x:Arguments>
             <local:BookingsPage/>
         </x:Arguments>

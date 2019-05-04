@@ -94,6 +94,24 @@ namespace TestApp
             return ErrorEnum.BOOKING_FAILED;
         }
 
+        public async Task<ErrorEnum> Checkout(int bookingID)
+        {
+            string reportURI = Globals.WEBAPIURI + "Booking/Checkout/" + bookingID;
+            var uri = new Uri(reportURI);
+            try
+            {
+                var response = await Client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    return ErrorEnum.SUCCESS;
+                }
+            }
+            catch (Exception e)
+            {
+                return ErrorEnum.BOOKING_FAILED;
+            }
+            return ErrorEnum.BOOKING_FAILED;
+        }
         
     }
 }

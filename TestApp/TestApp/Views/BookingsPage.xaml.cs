@@ -15,7 +15,7 @@ namespace TestApp
         public BookingsPage()
         {
             InitializeComponent();
-            bm = new BookingViewModel();
+            bm = BookingViewModel.Instance;
             BindingContext = bm;
         }
 

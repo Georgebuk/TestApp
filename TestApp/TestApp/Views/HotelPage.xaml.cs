@@ -24,10 +24,10 @@ namespace TestApp
 
         private void HotelListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            loadHotelPage((Hotel)e.Item);
+            LoadHotelPage((Hotel)e.Item);
         }
 
-        private async void loadHotelPage(Hotel h)
+        private async void LoadHotelPage(Hotel h)
         {
             var SelectedHotelPage = new NavigationPage(new SelectedHotelPage(h));
             await Navigation.PushAsync(SelectedHotelPage);
