@@ -18,7 +18,7 @@ namespace TestApp
 		public HotelPage ()
 		{
 			InitializeComponent ();
-            hm = new HotelViewModel();
+            hm = HotelViewModel.Instance;
             BindingContext = hm;
 		}
 
@@ -40,6 +40,19 @@ namespace TestApp
                 string filter = hotelsSearch.Text;
                 hm.FilterHotels(filter);
             });
+        }
+
+        private void RefreshButton_Clicked(object sender, EventArgs e)
+        {
+            RefreshButton.IsVisible = false;
+            RefreshActivity.IsVisible = true;
+            RefreshActivity.IsRunning = true;
+            hm.RefreshHotels();
+            //Also refresh bookings so the user doesnt have to refresh twice
+            BookingViewModel.Instance.RefreshBookings();
+            RefreshButton.IsVisible = true;
+            RefreshActivity.IsVisible = false;
+            RefreshActivity.IsRunning = false;
         }
     }
 }

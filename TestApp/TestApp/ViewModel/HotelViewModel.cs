@@ -13,8 +13,11 @@ namespace TestApp.ViewModel
 {
     public class HotelViewModel : INotifyPropertyChanged
     {
+        //SINGLETON
         private ObservableCollection<Hotel> unfilteredHotels = new ObservableCollection<Hotel>();
         private ObservableCollection<Hotel> hotels = new ObservableCollection<Hotel>();
+
+        private static HotelViewModel _instance;
 
         public ObservableCollection<Hotel> Hotels
         {
@@ -113,6 +116,16 @@ namespace TestApp.ViewModel
                 PropertyChangedEventArgs(propertyName));
         }
 
+        public static HotelViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new HotelViewModel();
+                return _instance;
+            }
+        }
+
         public HotelViewModel()
         {
             Hotels = new ObservableCollection<Hotel>();
@@ -123,7 +136,7 @@ namespace TestApp.ViewModel
         {
             List<Hotel> filteredHotels =
                 unfilteredHotels.Where(w => w.City.Contains(filter)
-                || w.HotelName.Contains(filter) 
+                || w.HotelName.Contains(filter)
                 || w.HotelPostcode.Contains(filter)
                 || w.AddressLine1.Contains(filter)
                 || w.AddressLine2.Contains(filter)).ToList();
@@ -161,6 +174,11 @@ namespace TestApp.ViewModel
                     IsRefreshing = false; //Stop refreshing animation
                 });
             }
+        }
+
+        public void RefreshHotels()
+        {
+            GetHotels();
         }
     }
 }

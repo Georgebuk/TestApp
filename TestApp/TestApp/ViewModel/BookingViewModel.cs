@@ -5,9 +5,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using TestApp.Web_Service;
 using Xamarin.Forms;
 
-namespace TestApp
+namespace TestApp.ViewModel
 {
     public class BookingViewModel : INotifyPropertyChanged
     {
@@ -58,8 +59,8 @@ namespace TestApp
                 || w.Hotel.AddressLine1.Contains(filter)
                 || w.Hotel.AddressLine2.Contains(filter)
                 || w.Hotel.City.Contains(filter)).ToList();
-            ObservableCollection<Booking> bookingF = new ObservableCollection<Booking>(); 
-            foreach(Booking b in filteredBookings)
+            ObservableCollection<Booking> bookingF = new ObservableCollection<Booking>();
+            foreach (Booking b in filteredBookings)
             {
                 bookingF.Add(b);
             }
@@ -75,7 +76,6 @@ namespace TestApp
         private bool _hideBooking_IsVisible;
         private bool _search_IsVisible;
         private bool _filterLabel_IsVisible;
-
         //Returns whether the "no bookings found with search" label is visible
         public bool FilterLabel_IsVisible
         {
@@ -191,12 +191,14 @@ namespace TestApp
 
         public void RefreshBookings()
         {
+            IsRefreshing = true;
             GetBookings();
+            IsRefreshing = false;
         }
 
         public void updateBookings(string filter)
         {
-            
+
         }
     }
 }

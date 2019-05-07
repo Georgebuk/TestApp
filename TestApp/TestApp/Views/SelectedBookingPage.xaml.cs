@@ -5,7 +5,6 @@ using System.IO;
 using TestApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ZXing;
 
 namespace TestApp.Pages
 {

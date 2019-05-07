@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using TestApp.Pages;
+using TestApp.ViewModel;
 using Xamarin.Forms;
 
 namespace TestApp
@@ -50,6 +51,21 @@ namespace TestApp
                 string filter = bookingsSearch.Text;
                 bm.FilterBookings(filter);
             });
+        }
+
+        private void RefreshButton_Clicked(object sender, EventArgs e)
+        {
+            RefreshButton.IsVisible = false;
+            RefreshActivity.IsVisible = true;
+            RefreshActivity.IsRunning = true;
+            bm.RefreshBookings();
+            //Also refresh hotels so the user doesnt have to refresh twice
+            HotelViewModel.Instance.RefreshHotels();
+            RefreshButton.IsVisible = true;
+            RefreshActivity.IsVisible = false;
+            RefreshActivity.IsRunning = false;
+            
+
         }
     }
 }

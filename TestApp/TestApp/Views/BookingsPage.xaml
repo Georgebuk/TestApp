@@ -25,6 +25,15 @@
                        VerticalOptions="Center"/>
                 <Image Source="frown.png" Opacity="0.2"
                        VerticalOptions="Center"/>
+                <Button x:Name="RefreshButton"
+                        Clicked="RefreshButton_Clicked"
+                        TextColor="White" 
+                        BackgroundColor="#2DC7A8"
+                        Margin="20, 10, 20, 0"
+                        Text="Refresh"/>
+                <ActivityIndicator IsVisible="False"
+                                   IsRunning="False"
+                                   x:Name="RefreshActivity"/>
             </StackLayout>
             <StackLayout IsVisible="{Binding FilterLabel_IsVisible}"
                        VerticalOptions="Center">

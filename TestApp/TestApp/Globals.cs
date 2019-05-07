@@ -27,6 +27,6 @@ namespace TestApp
                     Application.Current.Properties["loggedInCustomer"] = JsonConvert.SerializeObject(value);
             }
         }
-        public static string WEBAPIURI = "https://webapihotel.conveyor.cloud/api/";
+        public static string WEBAPIURI = "http://192.168.0.24:45459" +"/api/";
     }
 }

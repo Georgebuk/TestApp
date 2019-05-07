@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="TestApp.Web_Service.BookingRestService">
+    <Position X="0.5" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAiBAAAAAAAAAAAAABAAAAAQAAAAAAAAAQ=</HashCode>
+      <FileName>Web Service\BookingRestService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Web_Service.HotelRestService">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAABAAAAAQAAAACAAAAQ=</HashCode>
+      <FileName>Web Service\HotelRestService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.Web_Service.UserRestService">
+    <Position X="4.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAABAAAAAUAAAAAAAAAQ=</HashCode>
+      <FileName>Web Service\UserRestService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.HotelViewModel">
+    <Position X="8" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAFAAEABAAAAAoAAAABAAgAAEAAAAEMACAAAAAAA=</HashCode>
+      <FileName>ViewModel\HotelViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.UserViewModel">
+    <Position X="11.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAEAAABAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.ViewModel.BookingViewModel">
+    <Position X="4" Y="3.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AEAEABAAACBgEAABoAAAIAAAgAAAAAAIUMAAAAAIAAA=</HashCode>
+      <FileName>ViewModel\BookingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.HotelPage">
+    <Position X="11.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAABAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Views\HotelPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp.BookingsPage">
+    <Position X="0.75" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAIQAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BookingsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

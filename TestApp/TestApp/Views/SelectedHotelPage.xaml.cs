@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestApp.ViewModel;
 using TestApp.Web_Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
